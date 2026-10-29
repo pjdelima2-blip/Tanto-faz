@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-surface-variant": "#dcc1b1", "on-secondary-fixed-variant": "#394857", "surface-container-high": "#272a2d", "on-tertiary": "#432c00", "tertiary-fixed": "#ffdeac", "on-secondary-fixed": "#0d1d2a", "on-error": "#690005", "tertiary-fixed-dim": "#fabc4c", "primary-fixed-dim": "#ffb783", "surface-container-low": "#191c1f", "primary-fixed": "#ffdcc5", "on-error-container": "#ffdad6", "on-tertiary-container": "#442d00", "outline": "#a48c7d", "on-surface": "#e1e2e7", "on-tertiary-fixed-variant": "#604100", "tertiary": "#fabc4c", "secondary-container": "#3c4b5a", "on-primary-fixed-variant": "#713700", "on-primary": "#4f2500", "inverse-primary": "#944a00", "surface": "#111417", "background": "#111417", "on-primary-container": "#502600", "error": "#ffb4ab", "surface-dim": "#111417", "surface-container-highest": "#323538", "surface-container": "#1d2023", "surface-bright": "#37393d", "primary-container": "#e67e22", "outline-variant": "#564337", "on-secondary": "#233240", "inverse-surface": "#e1e2e7", "surface-variant": "#323538", "inverse-on-surface": "#2e3134", "on-background": "#e1e2e7", "tertiary-container": "#c78f21", "secondary-fixed": "#d4e4f7", "on-tertiary-fixed": "#281900", "secondary-fixed-dim": "#b8c8da", "secondary": "#b8c8da", "primary": "#ffb783", "error-container": "#93000a", "surface-container-lowest": "#0b0e11", "on-primary-fixed": "#301400", "on-secondary-container": "#aabacc", "surface-tint": "#ffb783" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin-mobile": "1rem", "gutter": "1rem", "space-md": "1rem", "space-xl": "2.25rem", "space-sm": "0.5rem", "margin": "1.5rem", "space-xs": "0.25rem", "space-lg": "1.5rem", "gutter-mobile": "0.75rem" }, "fontFamily": { "body-sm": ["Hanken Grotesk"], "body-md": ["Hanken Grotesk"], "headline-sm": ["Manrope"], "headline-lg-mobile": ["Manrope"], "display-lg": ["Manrope"], "label-lg": ["Hanken Grotesk"], "headline-lg": ["Manrope"], "body-lg": ["Hanken Grotesk"], "label-sm": ["Hanken Grotesk"], "headline-md": ["Manrope"], "label-md": ["Hanken Grotesk"] }, "fontSize": { "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}], "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}], "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}], "headline-lg-mobile": ["26px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}], "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}], "label-lg": ["14px", {"lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600"}], "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "700"}], "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}], "label-sm": ["10px", {"lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "700"}], "headline-md": ["22px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}], "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600"}] } } } }</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head><body class="bg-surface font-body-md text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl pt-safe shadow-[0_4px_16px_rgba(0,0,0,0.4)]"><div class="h-16 px-margin-mobile flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><img alt="EngBuild Logo" class="h-8 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9OZkJxiKlOQVSCExhzKrujVzz1yGVHF4jmIS6FI0OZelk8yJG7t0WuozmGFu4uBO_GVmeUSjgt6_BbqnqZdN5TfH3t2dJUYlzi8OtJAWbTfrlslbNCNAjyvdwyLzFeMR55W-enyRqGPrRay0N3pt7R6a5OaO7ivyZ-QKQDeafyYTwtDOXgdpzcAGmwUrNoTS5AfDBj5ITgalXOKmjkopkUajz5C6M1Kxr16hbOcE"/><div class="flex flex-col min-w-0"><div class="flex items-center gap-1.5"><span class="font-headline-sm text-headline-sm text-on-surface truncate">EngMentor</span><div class="flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-surface-container-high"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span><span class="font-label-sm text-label-sm text-primary uppercase">Obra Conectada</span></div></div><span class="font-label-sm text-label-sm text-on-surface-variant truncate">Chat Com Mentor</span></div></div><div class="flex items-center gap-space-sm shrink-0"><a aria-label="Chat com Mentor" class="w-11 h-11 rounded-lg flex items-center justify-center bg-surface-container-high text-primary hover:bg-surface-container-highest transition-colors relative" data-path="chat-com-mentor" href="#"><span class="material-symbols-outlined text-[20px]">chat_bubble</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-tertiary"></span></a><img alt="Profile" class="w-8 h-8 rounded-full object-cover shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCk4F1k57UnUJuWc_V-66y_YFlCCWcv_xs0c452qP6SNuWro4YA1-TJ3G_9XIzZ13akynmN8Dzo_l6_zu_CpNtp_XumH_w4wpwCzGCsFa18JG0yxy3PIJ8wicyQ3hw2AyNeGVLUYWucvGNZkl9F0CckOhHlzY3HLAvuPg47h4X8HXnLrogIjkzaqp6euEd_9GVTmY1rP_lC0zSpox7pdvfEpk11obvW1Yc5FQ4VfeI"/></div></div></header><main class="flex flex-col relative w-full pt-16 pb-20 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Technical Context Bar -->
+<section class="w-full bg-surface-container-low px-margin-mobile py-2.5 shadow-sm">
+<div class="flex items-center justify-between gap-space-sm max-w-4xl mx-auto">
+<div class="flex items-center gap-2 min-w-0">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0" style="font-variation-settings: 'FILL' 1;">domain</span>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Edifício Horizon Tower</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">Laje 14º Pav.</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Frente Crítica: Viga V-102 (Concretagem 15h)</span>
+</div>
+</div>
+<button class="shrink-0 flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface transition-all active:scale-95 text-left" type="button">
+<span class="material-symbols-outlined text-[16px] text-tertiary">assignment_turned_in</span>
+<span class="font-label-sm text-label-sm font-semibold">RDO / Ficha</span>
+</button>
+</div>
+</section>
+<!-- Senior Mentor Info Card -->
+<section class="w-full px-margin-mobile pt-3 pb-2 max-w-4xl mx-auto">
+<div class="bg-surface-container rounded-xl p-3.5 shadow-md flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-3 min-w-0">
+<div class="relative shrink-0">
+<img class="w-13 h-13 rounded-xl object-cover shadow-sm" data-alt="Close up realistic portrait of a senior civil structural engineer in his early 50s named Eng. Mauricio Peixoto, wearing a white safety helmet with subtle scratches, high visibility reflective vest, warm confident smile, sunset lighting on a high rise construction site background, professional technical aesthetic, rich warm amber highlights and deep charcoal shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFHDz8GoC1BAk8LoIwrJy8h6hyy2WmvlOn3VaSLhMkUnGFF1F4cFohw-chPXaQ4hEVbzr2PgILmnlSocbmBGhlN98J1xRvkHbSKiD7CQDviHwGgRxGqkw2G2OPzz1lcjgcFc2cXuAhJGY_aaYq4PwegYo5-NARHP1JXAJsJcfYLC7uu2uvNnpXeUbyibd2iRwUz_wyKiqvdSIHZx8YYtgesxSFnw5dVwFbFAVDyPI"/>
+<span class="absolute -bottom-1 -right-1 w-3.5 h-3.5 rounded-full bg-emerald-500 ring-2 ring-surface animate-pulse"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5 flex-wrap">
+<h2 class="font-headline-sm text-headline-sm text-on-surface truncate">Eng. Maurício Peixoto</h2>
+<span class="px-1.5 py-0.5 rounded bg-primary-container/20 text-primary font-label-sm text-label-sm uppercase font-bold">CREA-SP 184920</span>
+</div>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-body-sm text-body-sm text-emerald-400 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+              Plantão Ativo • ~2 min
+            </span>
+<span class="text-outline-variant font-body-sm">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Especialista Estruturas</span>
+</div>
+</div>
+</div>
+<!-- Call & Options Actions -->
+<div class="flex items-center gap-1.5 shrink-0">
+<button aria-label="Ligar por Áudio ou Vídeo" class="w-10 h-10 rounded-lg flex items-center justify-center bg-primary-container text-on-primary-container hover:bg-tertiary-container transition-transform active:scale-95 shadow-sm" id="btn-call-mentor" type="button">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">phone_in_talk</span>
+</button>
+<button aria-label="Opções da mentoria" class="w-9 h-9 rounded-lg flex items-center justify-center bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Technical Chat Stream -->
+<main class="w-full px-margin-mobile py-2 flex flex-col gap-3.5 max-w-4xl mx-auto pb-44">
+<!-- Timeline Marker -->
+<div class="flex items-center justify-center my-1">
+<div class="flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-low shadow-sm">
+<span class="material-symbols-outlined text-outline text-[14px]">schedule</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Hoje • Plantão Pré-Concretagem (14:15)</span>
+</div>
+</div>
+<!-- Message 1: Mentor Greeting -->
+<div class="flex items-start gap-2.5 max-w-[92%] sm:max-w-[80%] self-start">
+<div class="w-7 h-7 rounded-lg bg-surface-container-high flex items-center justify-center text-primary shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px]">engineering</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="bg-surface-container rounded-2xl rounded-tl-sm p-3.5 shadow-sm text-on-surface">
+<div class="flex items-center justify-between gap-3 mb-1">
+<span class="font-label-md text-label-md text-primary font-semibold">Eng. Maurício Peixoto</span>
+<span class="font-label-sm text-label-sm text-outline">14:18</span>
+</div>
+<p class="font-body-md text-body-md leading-relaxed">
+            Boa tarde, Gabriel! Vi que a usina confirmou o caminhão betoneira para as <strong class="text-tertiary">15:00</strong>. Como está a conferência de armadura positiva e os espaçadores da <strong class="text-on-surface">Viga V-102</strong>? Me mande uma foto com o ângulo do transpasse para eu validar antes de fecharem a lateral da fôrma.
+          </p>
+</div>
+</div>
+</div>
+<!-- Message 2: Resident Engineer Sent Photo with Overlaid Annotations -->
+<div class="flex items-start gap-2.5 max-w-[94%] sm:max-w-[85%] self-end flex-row-reverse">
+<div class="w-7 h-7 rounded-lg bg-secondary-container flex items-center justify-center text-secondary shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px]">person</span>
+</div>
+<div class="flex flex-col gap-1 items-end w-full">
+<div class="bg-secondary-container text-on-secondary-container rounded-2xl rounded-tr-sm p-3 shadow-sm w-full">
+<div class="flex items-center justify-between gap-3 mb-2">
+<span class="font-label-md text-label-md font-semibold text-secondary-fixed">Você (Eng. Residente)</span>
+<span class="font-label-sm text-label-sm text-secondary">14:22</span>
+</div>
+<!-- Annotated Image Card -->
+<div class="relative w-full rounded-xl overflow-hidden shadow-md mb-2.5 group">
+<img class="w-full h-52 sm:h-64 object-cover" data-alt="High angle close-up technical inspection photo of reinforced steel rebar cage assembled inside wooden formwork for a heavy concrete beam V-102 on a building floor construction site. Clear spacers pastilha rapadura visible elevating steel bars 25mm from timber base, tied rebar joints, bright daylight with warm construction amber accents, high contrast and technical clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpTlGwtIfCeSYV6OQpB0t6vbmneT889bOd1-mtbKhXMhOchSrtCCxs1ynXidfpHN0iFXN6oqSb8iALPGnqfXYbp0vKMInWD0acHHAzA0xmr2reVDBidBkI2OZIm4uDn4vBjoTFsO63xGz8zrR8PCq7WI4ikbL-_DLId0ax3hXS5XNv2J3VsNArQQSqc_qgFfxPQyXgnb9GAnGkGhV9goQU62TwhvXImS2RRR_0bls"/>
+<!-- Dark Gradient Scrim -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 via-transparent to-surface-container-lowest/40 pointer-events-none"></div>
+<!-- Overlaid Inspection Badges -->
+<div class="absolute top-2 left-2 flex flex-col gap-1.5">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-lowest/85 backdrop-blur-md text-emerald-400 font-label-sm text-label-sm font-semibold shadow-sm">
+<span class="material-symbols-outlined text-[13px]">check_circle</span>
+                Cobrimento: 2.5cm OK
+              </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-lowest/85 backdrop-blur-md text-tertiary font-label-sm text-label-sm font-semibold shadow-sm">
+<span class="material-symbols-outlined text-[13px]">straighten</span>
+                Espaçadores pastilha 80cm
+              </span>
+</div>
+<!-- Warning Tag -->
+<div class="absolute bottom-2 right-2">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-primary-container text-on-primary-container font-label-sm text-label-sm font-bold shadow-md">
+<span class="material-symbols-outlined text-[14px]">priority_high</span>
+                Verificar Transpasse 16mm
+              </span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+            Eng. Maurício, posicionamos os espaçadores tipo rapadura a cada 80cm na viga V-102 conforme especificado. Pode avaliar o comprimento de transpasse das barras longitudinais de 16mm no apoio central?
+          </p>
+<div class="flex items-center justify-end gap-1 mt-1.5 text-secondary font-label-sm text-label-sm">
+<span>Entregue</span>
+<span class="material-symbols-outlined text-[15px] text-tertiary">done_all</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Message 3: Mentor Audio & Seal of Structural Approval -->
+<div class="flex items-start gap-2.5 max-w-[94%] sm:max-w-[85%] self-start">
+<div class="w-7 h-7 rounded-lg bg-surface-container-high flex items-center justify-center text-primary shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px]">engineering</span>
+</div>
+<div class="flex flex-col gap-1.5 w-full">
+<!-- Structural Seal Stamp -->
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-low shadow-xs self-start">
+<span class="material-symbols-outlined text-emerald-400 text-[18px]">verified</span>
+<span class="font-label-sm text-label-sm text-emerald-400 font-bold uppercase tracking-wider">Aprovação Preliminar de Armadura</span>
+<span class="font-label-sm text-label-sm text-outline">• NBR 6118</span>
+</div>
+<div class="bg-surface-container rounded-2xl rounded-tl-sm p-3.5 shadow-sm text-on-surface w-full">
+<div class="flex items-center justify-between gap-3 mb-2">
+<span class="font-label-md text-label-md text-primary font-semibold">Eng. Maurício Peixoto</span>
+<span class="font-label-sm text-label-sm text-outline">14:26</span>
+</div>
+<!-- Interactive Field Audio Player -->
+<div class="p-3 rounded-xl bg-surface-container-high flex flex-col gap-2 shadow-xs mb-3" id="audio-bubble">
+<div class="flex items-center gap-3">
+<button aria-label="Tocar áudio explicativo" class="w-11 h-11 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-md active:scale-95 transition-transform shrink-0" id="btn-play-audio" type="button">
+<span class="material-symbols-outlined text-[24px]" id="play-icon" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<!-- Waveform Visualization -->
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant mb-1">
+<span class="flex items-center gap-1 font-semibold text-primary">
+<span class="material-symbols-outlined text-[14px]">mic</span>
+                    Instrução de Viga V-102
+                  </span>
+<span class="font-mono" id="audio-timer">0:42</span>
+</div>
+<!-- Simulated Waveform Bars -->
+<div class="flex items-center gap-0.5 h-6 w-full cursor-pointer py-1" id="waveform-container">
+<span class="w-1 rounded-full bg-primary h-2"></span>
+<span class="w-1 rounded-full bg-primary h-4"></span>
+<span class="w-1 rounded-full bg-primary h-5"></span>
+<span class="w-1 rounded-full bg-primary h-3"></span>
+<span class="w-1 rounded-full bg-primary h-6"></span>
+<span class="w-1 rounded-full bg-primary h-4"></span>
+<span class="w-1 rounded-full bg-primary-container h-5"></span>
+<span class="w-1 rounded-full bg-primary-container h-3"></span>
+<span class="w-1 rounded-full bg-outline-variant h-5"></span>
+<span class="w-1 rounded-full bg-outline-variant h-4"></span>
+<span class="w-1 rounded-full bg-outline-variant h-6"></span>
+<span class="w-1 rounded-full bg-outline-variant h-2"></span>
+<span class="w-1 rounded-full bg-outline-variant h-5"></span>
+<span class="w-1 rounded-full bg-outline-variant h-4"></span>
+<span class="w-1 rounded-full bg-outline-variant h-3"></span>
+<span class="w-1 rounded-full bg-outline-variant h-6"></span>
+<span class="w-1 rounded-full bg-outline-variant h-4"></span>
+<span class="w-1 rounded-full bg-outline-variant h-2"></span>
+<span class="w-1 rounded-full bg-outline-variant h-5"></span>
+<span class="w-1 rounded-full bg-outline-variant h-3"></span>
+</div>
+</div>
+</div>
+<!-- Voice Transcription Quote -->
+<div class="p-2.5 rounded-lg bg-surface-container-low text-on-surface-variant font-body-sm text-body-sm flex items-start gap-2">
+<span class="material-symbols-outlined text-tertiary text-[16px] shrink-0 mt-0.5">format_quote</span>
+<p class="italic leading-normal">
+                “Gabriel, medi aqui na foto: o transpasse está com 68cm, adequado aos 45ø da NBR 6118 para barra de 16mm. Só amarre o estribo superior antes de fechar a lateral para não tombar no adensamento!”
+              </p>
+</div>
+</div>
+<!-- Attached Blueprints/CAD Card -->
+<div class="rounded-xl bg-surface-container-low p-3 flex flex-col gap-2.5 shadow-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-wider flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px]">architecture</span>
+                Referência Técnica Anexada
+              </span>
+<span class="font-label-sm text-label-sm text-outline">PDF • 4.8 MB</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-16 h-16 rounded-lg overflow-hidden shrink-0 bg-surface-container-highest relative shadow-xs cursor-pointer group" onclick="openBlueprintViewer()">
+<img class="w-full h-full object-cover transition-transform group-hover:scale-105" data-alt="Blueprint CAD technical drawing detail preview showing beam reinforcement cross section, concrete dimensions, hook anchorage radius and stirrup spacing tags on a dark blueprint aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0Uc8I9lziWvL3noSzT7F7BRslBii1GuUGi2JdB3ANIdD0fBshGPAzhF8VL9_plhTNENv29mAu0CjNqg8tv-GiEBzSGiWoKBZWcwXuaK80Qt0ahKZJCj7GXEPs7qUJrbJyuAQ3Ux3SHrUplROKBuMfiHIhAn9XmsUxCRrrTLJXnyhI8PwniFff-YIF76lcmqfgdCAFuIlfbrW-Au3X7tYnm9n0HyNBEgarVwutMlA"/>
+<div class="absolute inset-0 bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[20px] drop-shadow">zoom_in</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<h3 class="font-label-md text-label-md text-on-surface font-semibold truncate cursor-pointer hover:text-primary transition-colors" onclick="openBlueprintViewer()">Prancha E-04_Rev02.pdf</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Corte Longitudinal e Detalhe de Armação V-102</p>
+<div class="flex items-center gap-2 mt-1.5">
+<button class="px-2.5 py-1 rounded bg-surface-container-highest text-primary font-label-sm text-label-sm font-semibold hover:bg-surface-bright active:scale-95 transition-all flex items-center gap-1" onclick="openBlueprintViewer()" type="button">
+<span class="material-symbols-outlined text-[13px]">fullscreen</span>
+                    Ver Prancha
+                  </button>
+<button class="px-2 py-1 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface transition-colors" type="button">
+                    Baixar
+                  </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Alert / Critical Rule Banner: NBR Checklist -->
+<div class="bg-surface-container-high rounded-xl p-3.5 shadow-md flex items-start gap-3 my-1">
+<div class="w-8 h-8 rounded-lg bg-tertiary-container text-on-tertiary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">warning</span>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center justify-between gap-2">
+<h4 class="font-label-md text-label-md text-tertiary font-bold uppercase tracking-wider">Atenção Crítica: Slump Test &amp; Amostragem</h4>
+<span class="font-label-sm text-label-sm text-outline">NBR 5738</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+          Concreto C30 brita 1. Exija abatimento de <strong>12 ± 2 cm</strong> na nota fiscal antes da descarga e colete 6 corpos-de-prova (2 aos 7d, 4 aos 28d).
+        </p>
+</div>
+</div>
+</main>
+<!-- Sticky Bottom Field Action & Input Console -->
+<footer class="fixed bottom-16 left-0 right-0 z-40 bg-surface-container-lowest/95 backdrop-blur-xl shadow-xl px-margin-mobile pt-2.5 pb-2">
+<div class="max-w-4xl mx-auto flex flex-col gap-2">
+<!-- Quick Action Field Chips -->
+<div class="flex items-center gap-1.5 overflow-x-auto pb-1 text-nowrap no-scrollbar">
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-primary font-label-sm text-label-sm font-semibold transition-transform active:scale-95 shadow-xs shrink-0" onclick="insertTag('📸 Foto de Armação')" type="button">
+<span class="material-symbols-outlined text-[15px]">photo_camera</span>
+          Foto de Armação
+        </button>
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-secondary font-label-sm text-label-sm font-semibold transition-transform active:scale-95 shadow-xs shrink-0" onclick="openBlueprintViewer()" type="button">
+<span class="material-symbols-outlined text-[15px]">draw</span>
+          📐 Prancha E-04
+        </button>
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-tertiary font-label-sm text-label-sm font-semibold transition-transform active:scale-95 shadow-xs shrink-0" onclick="insertTag('🏷️ Tag NBR 6118')" type="button">
+<span class="material-symbols-outlined text-[15px]">verified</span>
+          NBR 6118
+        </button>
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-bold transition-transform active:scale-95 shadow-xs shrink-0" onclick="insertTag('🚨 Alerta: Paralisar Frente')" type="button">
+<span class="material-symbols-outlined text-[15px]">block</span>
+          Paralisar Frente
+        </button>
+</div>
+<!-- Main Input Bar -->
+<div class="flex items-center gap-2">
+<!-- Field Camera Quick Snap Button (with AI Rebar recognition hint) -->
+<button aria-label="Tirar foto com IA de armação" class="relative w-12 h-12 rounded-xl bg-surface-container-high hover:bg-surface-container-highest text-primary flex items-center justify-center shrink-0 transition-colors shadow-xs active:scale-95" id="btn-camera" title="Tirar foto da armação com medição assistida" type="button">
+<span class="material-symbols-outlined text-[24px]">add_a_photo</span>
+<span class="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-tertiary flex items-center justify-center font-label-sm text-[9px] text-on-tertiary font-bold">IA</span>
+</button>
+<!-- Attach Project File / DWG / PDF -->
+<button aria-label="Anexar documento ou prancha" class="w-11 h-12 rounded-xl bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant flex items-center justify-center shrink-0 transition-colors shadow-xs active:scale-95" title="Anexar Prancha ou PDF" type="button">
+<span class="material-symbols-outlined text-[22px]">attach_file</span>
+</button>
+<!-- Message Field -->
+<div class="relative flex-1 min-w-0">
+<input class="w-full h-12 px-3.5 bg-surface-container rounded-xl text-on-surface placeholder:text-on-surface-variant/60 font-body-md text-body-md focus:outline-none focus:bg-surface-container-high transition-all" id="chat-input" placeholder="Dúvida técnica ou norma NBR..." type="text"/>
+</div>
+<!-- Quick 30s Audio Record Button -->
+<button aria-label="Gravar áudio de campo" class="w-11 h-12 rounded-xl bg-surface-container-high text-on-surface-variant hover:text-primary hover:bg-surface-container-highest flex items-center justify-center shrink-0 transition-colors shadow-xs active:scale-95" id="btn-mic" title="Gravar áudio de campo (30s)" type="button">
+<span class="material-symbols-outlined text-[22px]">mic</span>
+</button>
+<!-- High-Contrast Send Button -->
+<button aria-label="Enviar mensagem" class="w-12 h-12 rounded-xl bg-primary-container text-on-primary-container hover:bg-tertiary-container flex items-center justify-center shrink-0 shadow-md active:scale-95 transition-transform" id="btn-send" type="button">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">send</span>
+</button>
+</div>
+</div>
+</footer>
+<!-- Interactive Technical Blueprint Viewer Modal -->
+<div aria-modal="true" class="fixed inset-0 z-50 flex flex-col bg-surface-container-lowest/95 backdrop-blur-2xl transition-opacity duration-300 opacity-0 pointer-events-none" id="blueprint-modal" role="dialog">
+<!-- Modal Header -->
+<header class="flex items-center justify-between px-4 py-3 bg-surface-container border-b border-surface-container-highest shrink-0 shadow-md">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-9 h-9 rounded-lg bg-primary-container/20 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">architecture</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-sm sm:text-base text-on-surface font-bold truncate">Prancha E-04 - Detalhamento V-102</h2>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-surface-container-high text-tertiary border border-tertiary/30">Escala 1:25</span>
+</div>
+<p class="font-body-sm text-xs text-on-surface-variant truncate">Corte Longitudinal e Armadura NBR 6118 • Horizon Tower</p>
+</div>
+</div>
+<!-- Top Action Controls -->
+<div class="flex items-center gap-1.5 shrink-0">
+<!-- Toggle Annotations Layer -->
+<button aria-label="Ativar régua e ferramenta de medição virtual" class="flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-primary-container text-on-primary-container hover:bg-tertiary-container text-xs font-semibold transition-all active:scale-95 shadow-sm" id="btn-toggle-ruler" onclick="toggleRulerTool()" title="Régua calibrada e cotagem virtual" type="button"><span class="material-symbols-outlined text-[16px]">straighten</span><span class="hidden sm:inline" id="text-toggle-ruler">Medir (1:25)</span></button><button class="flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-xs font-semibold text-primary transition-all active:scale-95 border border-primary/30" id="btn-toggle-pins" title="Alternar visualização de anotações do Mentor" type="button">
+<span class="material-symbols-outlined text-[16px]" id="icon-toggle-pins">visibility</span>
+<span class="hidden sm:inline" id="text-toggle-pins">Notas Mentor</span>
+</button>
+<!-- Close Button -->
+<button aria-label="Fechar visualizador de prancha" class="w-9 h-9 rounded-lg flex items-center justify-center bg-surface-container-high hover:bg-surface-container-highest text-on-surface transition-colors" onclick="closeBlueprintViewer()" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+</header>
+<!-- Viewer Canvas Container with Zoom Controls Overlay -->
+<div class="relative flex-1 w-full overflow-hidden bg-[#070b10] flex items-center justify-center select-none" id="viewport-container">
+<!-- Floating Zoom HUD Controls -->
+<div class="absolute top-3 right-3 z-30 flex flex-col gap-1.5 bg-surface-container/90 backdrop-blur-md p-1.5 rounded-xl border border-surface-container-highest shadow-xl">
+<button aria-label="Aproximar zoom" class="w-9 h-9 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface flex items-center justify-center transition-colors active:scale-90" id="btn-zoom-in" type="button">
+<span class="material-symbols-outlined text-[18px]">zoom_in</span>
+</button>
+<button aria-label="Afastar zoom" class="w-9 h-9 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface flex items-center justify-center transition-colors active:scale-90" id="btn-zoom-out" type="button">
+<span class="material-symbols-outlined text-[18px]">zoom_out</span>
+</button>
+<button aria-label="Resetar zoom para 100%" class="w-9 h-9 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface-variant hover:text-primary flex items-center justify-center transition-colors active:scale-90 text-[11px] font-mono font-bold" id="btn-zoom-reset" title="Ajustar à tela" type="button">
+        100%
+      </button>
+</div>
+<!-- Structural Technical Blueprint Graphics Stage -->
+<div class="relative origin-center transition-transform duration-150 cursor-grab active:cursor-grabbing p-4 max-w-full" id="blueprint-stage" style="transform: scale(1);">
+<!-- SVG Vector Technical Cad Sheet -->
+<div class="relative w-[340px] sm:w-[540px] bg-[#0c1421] border-2 border-[#1f3a5f] rounded-xl shadow-2xl p-3 sm:p-5 overflow-visible">
+<!-- Blueprint Grid Pattern Scrim -->
+<div class="absolute inset-0 opacity-20 pointer-events-none rounded-xl" style="background-image: linear-gradient(to right, #4088da 1px, transparent 1px), linear-gradient(to bottom, #4088da 1px, transparent 1px); background-size: 20px 20px;"></div>
+<!-- Sheet Title Stamp (Selo NBR) -->
+<div class="flex items-center justify-between border-b border-[#22446d] pb-2 mb-3 text-[10px] text-secondary">
+<div class="flex items-center gap-1.5">
+<span class="font-mono font-bold text-primary">PROJETO ESTRUTURAL • V-102 (20x60)</span>
+<span class="text-outline-variant">|</span>
+<span>VÃO: 5.60m</span>
+</div>
+<span class="font-mono text-tertiary">CONCRETO C30 • CA-50</span>
+</div>
+<!-- SVG Technical Diagram -->
+<svg class="w-full h-auto" preserveaspectratio="xMidYMid meet" viewbox="0 0 500 240">
+<defs>
+<!-- Marker Arrows for Dimensions -->
+<marker id="arrow" markerheight="6" markerwidth="6" orient="auto" refx="3" refy="3">
+<path d="M0,0 L6,3 L0,6 Z" fill="#7ba3cc"></path>
+</marker>
+<marker id="arrow-warn" markerheight="6" markerwidth="6" orient="auto" refx="3" refy="3">
+<path d="M0,0 L6,3 L0,6 Z" fill="#e67e22"></path>
+</marker>
+</defs>
+<!-- Support Column P-01 (Left) -->
+<rect fill="#152438" height="90" stroke="#3b6291" stroke-dasharray="3,3" stroke-width="1.5" width="40" x="20" y="80"></rect>
+<text fill="#7ba3cc" font-family="Hanken Grotesk" font-size="9" font-weight="600" text-anchor="middle" x="40" y="130">PILAR P-01</text>
+<!-- Support Column P-02 (Central Support) -->
+<rect fill="#152438" height="90" stroke="#3b6291" stroke-dasharray="3,3" stroke-width="1.5" width="45" x="280" y="80"></rect>
+<text fill="#7ba3cc" font-family="Hanken Grotesk" font-size="9" font-weight="600" text-anchor="middle" x="302" y="130">PILAR P-02</text>
+<!-- Beam Outline Geometry (Viga V-102) -->
+<rect fill="#0f1b2c" fill-opacity="0.8" height="70" rx="2" stroke="#4878b0" stroke-width="2" width="450" x="25" y="80"></rect>
+<!-- Dimension Line Upper (Cota Total L = 560 cm) -->
+<line marker-end="url(#arrow)" marker-start="url(#arrow)" stroke="#7ba3cc" stroke-width="1" x1="40" x2="302" y1="45" y2="45"></line>
+<text fill="#a9c7e8" font-family="Hanken Grotesk" font-size="9" text-anchor="middle" x="171" y="38">L = 560 cm (Vão Livre)</text>
+<!-- Overlap Length Dimension Tag (Transpasse 68 cm) -->
+<line marker-end="url(#arrow-warn)" marker-start="url(#arrow-warn)" stroke="#e67e22" stroke-width="1.5" x1="260" x2="330" y1="65" y2="65"></line>
+<text fill="#ffb783" font-family="Hanken Grotesk" font-size="9" font-weight="700" text-anchor="middle" x="295" y="58">c = 68 cm (45ø)</text>
+<!-- Longitudinal Bars (Top Rebar - Armadura Negativa / Montagem) -->
+<path d="M 35,92 L 465,92" fill="none" stroke="#60a5fa" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Hook at end -->
+<path d="M 35,92 L 35,115" fill="none" stroke="#60a5fa" stroke-linecap="round" stroke-width="2.5"></path>
+<text fill="#93c5fd" font-family="Hanken Grotesk" font-size="8" x="80" y="88">2 N4 ø10.0 (Porta-estribos)</text>
+<!-- Skin Reinforcement (Armadura de Pele N3) -->
+<line stroke="#94a3b8" stroke-dasharray="4,2" stroke-width="1.2" x1="40" x2="460" y1="115" y2="115"></line>
+<text fill="#94a3b8" font-family="Hanken Grotesk" font-size="7.5" x="80" y="112">2x1 N3 ø5.0 (Pele h &gt; 60cm)</text>
+<!-- Bottom Longitudinal Rebar (Positive Rebar 4 N1 ø16.0) -->
+<path d="M 35,138 L 260,138" fill="none" stroke="#fabc4c" stroke-linecap="round" stroke-width="3.5"></path>
+<!-- Hook left (Gancho de Ancoragem 90deg) -->
+<path d="M 35,138 L 35,112" fill="none" stroke="#fabc4c" stroke-linecap="round" stroke-width="3.5"></path>
+<!-- Overlap continuation at central support -->
+<path d="M 245,134 L 465,134" fill="none" stroke="#ff8c38" stroke-linecap="round" stroke-width="3.5"></path>
+<path d="M 465,134 L 465,112" fill="none" stroke="#ff8c38" stroke-linecap="round" stroke-width="3.5"></path>
+<text fill="#fabc4c" font-family="Hanken Grotesk" font-size="8.5" font-weight="700" x="120" y="147">4 N1 ø16.0 c=680</text>
+<!-- Stirrups (Estribos N2 ø6.3 c/15) -->
+<g stroke="#38bdf8" stroke-opacity="0.85" stroke-width="1.2">
+<line x1="50" x2="50" y1="88" y2="142"></line>
+<line x1="68" x2="68" y1="88" y2="142"></line>
+<line x1="86" x2="86" y1="88" y2="142"></line>
+<line x1="104" x2="104" y1="88" y2="142"></line>
+<line x1="122" x2="122" y1="88" y2="142"></line>
+<line x1="140" x2="140" y1="88" y2="142"></line>
+<line x1="158" x2="158" y1="88" y2="142"></line>
+<line x1="176" x2="176" y1="88" y2="142"></line>
+<line x1="194" x2="194" y1="88" y2="142"></line>
+<line x1="212" x2="212" y1="88" y2="142"></line>
+<line x1="230" x2="230" y1="88" y2="142"></line>
+<line x1="248" x2="248" y1="88" y2="142"></line>
+<line x1="266" x2="266" y1="88" y2="142"></line>
+<line x1="284" x2="284" y1="88" y2="142"></line>
+<line x1="302" x2="302" y1="88" y2="142"></line>
+<line x1="320" x2="320" y1="88" y2="142"></line>
+<line x1="338" x2="338" y1="88" y2="142"></line>
+<line x1="356" x2="356" y1="88" y2="142"></line>
+<line x1="374" x2="374" y1="88" y2="142"></line>
+<line x1="392" x2="392" y1="88" y2="142"></line>
+<line x1="410" x2="410" y1="88" y2="142"></line>
+<line x1="428" x2="428" y1="88" y2="142"></line>
+<line x1="446" x2="446" y1="88" y2="142"></line>
+</g>
+<text fill="#38bdf8" font-family="Hanken Grotesk" font-size="8" text-anchor="middle" x="380" y="160">Estribos: N2 ø6.3 c/ 15cm</text>
+<!-- Concrete Cover Dimension (Cobrimento c_nom = 25mm) -->
+<line marker-end="url(#arrow)" marker-start="url(#arrow)" stroke="#10b981" stroke-width="1.2" x1="95" x2="95" y1="138" y2="150"></line>
+<text fill="#34d399" font-family="Hanken Grotesk" font-size="7.5" font-weight="700" x="100" y="172">c_nom = 2.5cm</text>
+<!-- Cross Section Detail Inset (Seção 20x60) -->
+<g transform="translate(415, 170)">
+<rect fill="#152438" height="48" rx="1" stroke="#4878b0" stroke-width="1.5" width="22" x="0" y="0"></rect>
+<!-- Stirrup in cross section -->
+<rect fill="none" height="42" rx="1" stroke="#38bdf8" stroke-width="1" width="16" x="3" y="3"></rect>
+<!-- 2 Top rebar dots -->
+<circle cx="6" cy="6" fill="#60a5fa" r="1.5"></circle>
+<circle cx="16" cy="6" fill="#60a5fa" r="1.5"></circle>
+<!-- 4 Bottom rebar dots -->
+<circle cx="5.5" cy="42" fill="#fabc4c" r="2"></circle>
+<circle cx="9" cy="42" fill="#fabc4c" r="2"></circle>
+<circle cx="13" cy="42" fill="#fabc4c" r="2"></circle>
+<circle cx="16.5" cy="42" fill="#fabc4c" r="2"></circle>
+<text fill="#7ba3cc" font-family="Hanken Grotesk" font-size="6.5" text-anchor="middle" x="11" y="58">SEÇÃO 20x60</text>
+</g>
+</svg>
+<!-- Interactive Mentor Pins Layer Overlaid on Blueprint Coordinates -->
+<div class="annotation-layer absolute inset-0 pointer-events-auto" id="pins-layer">
+<!-- Pin 1: Overlap Area at P-02 Support -->
+<div class="pin-marker absolute top-[43%] left-[58%] -translate-x-1/2 -translate-y-1/2 group cursor-pointer z-20" onclick="selectInspectionPoint(1)">
+<div class="relative flex items-center justify-center">
+<span class="animate-ping absolute inline-flex h-8 w-8 rounded-full bg-primary opacity-60"></span>
+<div class="w-7 h-7 rounded-full bg-primary-container text-on-primary-container font-headline-sm font-bold text-xs flex items-center justify-center shadow-lg border-2 border-surface-container ring-2 ring-primary">
+                1
+              </div>
+</div>
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 whitespace-nowrap bg-surface-container-highest/95 backdrop-blur-md px-1.5 py-0.5 rounded text-[10px] font-semibold text-primary shadow">
+              Traspasse 68cm
+            </div>
+</div>
+<!-- Pin 2: Concrete Cover / Spacers -->
+<div class="pin-marker absolute top-[70%] left-[22%] -translate-x-1/2 -translate-y-1/2 group cursor-pointer z-20" onclick="selectInspectionPoint(2)">
+<div class="relative flex items-center justify-center">
+<span class="animate-ping absolute inline-flex h-7 w-7 rounded-full bg-emerald-400 opacity-50"></span>
+<div class="w-6 h-6 rounded-full bg-emerald-500 text-surface-container-lowest font-headline-sm font-bold text-xs flex items-center justify-center shadow-lg border-2 border-surface-container ring-2 ring-emerald-400">
+                2
+              </div>
+</div>
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 whitespace-nowrap bg-surface-container-highest/95 backdrop-blur-md px-1.5 py-0.5 rounded text-[10px] font-semibold text-emerald-400 shadow">
+              Cobrimento 2.5cm
+            </div>
+</div>
+<!-- Pin 3: Hook Anchorage -->
+<div class="pin-marker absolute top-[52%] left-[8%] -translate-x-1/2 -translate-y-1/2 group cursor-pointer z-20" onclick="selectInspectionPoint(3)">
+<div class="relative flex items-center justify-center">
+<span class="animate-ping absolute inline-flex h-7 w-7 rounded-full bg-tertiary opacity-50"></span>
+<div class="w-6 h-6 rounded-full bg-tertiary-container text-on-tertiary-container font-headline-sm font-bold text-xs flex items-center justify-center shadow-lg border-2 border-surface-container ring-2 ring-tertiary">
+                3
+              </div>
+</div>
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 whitespace-nowrap bg-surface-container-highest/95 backdrop-blur-md px-1.5 py-0.5 rounded text-[10px] font-semibold text-tertiary shadow">
+              Gancho 90°
+            </div>
+</div>
+</div><div class="absolute inset-0 pointer-events-auto transition-all duration-300" id="measurement-layer"><div class="absolute top-2 left-2 z-30 flex items-center gap-1 bg-surface-container-lowest/95 backdrop-blur-md px-2 py-1 rounded-lg border border-outline-variant/40 shadow-lg text-[10px]"><span class="text-primary font-bold flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">square_foot</span>Escala:</span><button class="px-1.5 py-0.5 rounded font-mono text-[9px] bg-surface-container-high text-on-surface-variant hover:text-on-surface" onclick="setMeasureScale('1:20', 20)" type="button">1:20</button><button class="px-1.5 py-0.5 rounded font-mono text-[9px] bg-primary text-on-primary font-bold" id="scale-pill-active" onclick="setMeasureScale('1:25', 25)" type="button">1:25</button><button class="px-1.5 py-0.5 rounded font-mono text-[9px] bg-surface-container-high text-on-surface-variant hover:text-on-surface" onclick="setMeasureScale('1:50', 50)" type="button">1:50</button><div class="w-px h-3 bg-outline-variant mx-0.5"></div><button class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-0.5 text-[9px]" onclick="resetMeasurement()" title="Zerar ou reiniciar cota"><span class="material-symbols-outlined text-[12px]">restart_alt</span>Zerar</button></div><div class="absolute top-[56px] left-[52%] -translate-x-1/2 z-30 flex flex-col items-center pointer-events-auto"><div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-lowest/95 backdrop-blur-xl border border-primary/40 shadow-xl ring-1 ring-primary/20"><span class="material-symbols-outlined text-primary text-[14px]">straighten</span><span class="font-mono font-bold text-xs text-primary" id="ruler-value-badge">68.0 cm</span><span class="text-[10px] text-tertiary font-semibold hidden sm:inline">(42.5Ø de 16mm)</span><span class="inline-flex items-center gap-0.5 text-[9px] px-1 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold uppercase tracking-wider"><span class="material-symbols-outlined text-[11px]">check_circle</span>NBR 6118 OK</span></div><span class="text-[8px] font-mono text-outline-variant mt-0.5 tracking-tight bg-surface-container-lowest/80 px-1 rounded">Transpasse V-102 • Apoio P-02</span></div><svg class="absolute inset-0 w-full h-full pointer-events-none z-20"><line stroke="#ffb783" stroke-dasharray="3,3" stroke-width="1.5" x1="52%" x2="52%" y1="25%" y2="75%"></line><g stroke="#fabc4c" stroke-width="2"><line stroke-linecap="round" x1="50%" x2="67%" y1="44%" y2="44%"></line><line x1="50%" x2="50%" y1="39%" y2="49%"></line><line x1="67%" x2="67%" y1="39%" y2="49%"></line></g><g opacity="0.75"><line stroke="#60a5fa" stroke-width="0.8" x1="53.4%" x2="53.4%" y1="42%" y2="46%"></line><line stroke="#60a5fa" stroke-width="0.8" x1="56.8%" x2="56.8%" y1="42%" y2="46%"></line><line stroke="#60a5fa" stroke-width="0.8" x1="60.2%" x2="60.2%" y1="42%" y2="46%"></line><line stroke="#60a5fa" stroke-width="0.8" x1="63.6%" x2="63.6%" y1="42%" y2="46%"></line></g></svg><div class="absolute top-[44%] left-[50%] -translate-x-1/2 -translate-y-1/2 z-30 cursor-grab active:cursor-grabbing p-1 group" title="Ponto A: Início do Transpasse (Arraste para ajustar)"><div class="w-5 h-5 rounded-full bg-primary-container border-2 border-surface text-[9px] font-bold text-on-primary-container flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">A</div></div><div class="absolute top-[44%] left-[67%] -translate-x-1/2 -translate-y-1/2 z-30 cursor-grab active:cursor-grabbing p-1 group" title="Ponto B: Fim do Transpasse (Arraste para ajustar)"><div class="w-5 h-5 rounded-full bg-tertiary text-on-tertiary font-bold border-2 border-surface text-[9px] flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">B</div></div><div class="absolute bottom-2 left-2 right-2 z-20 bg-surface-container-lowest/90 backdrop-blur-md rounded-lg p-1.5 border border-primary/20 flex flex-col gap-1 shadow-lg"><div class="flex items-center justify-between text-[9px] font-mono text-secondary px-1"><span class="flex items-center gap-1 text-primary font-bold"><span class="material-symbols-outlined text-[11px]">horizontal_rule</span>RÉGUA MILIMETRADA CALIBRADA (1:25)</span><span>1 div = 5cm</span></div><div class="h-4 w-full bg-[#0c1421] border border-[#22446d] rounded flex items-end px-1 overflow-hidden relative"><div class="flex justify-between w-full h-full items-end pb-0.5 opacity-80"><span class="w-0.5 h-3 bg-primary"></span><span class="w-px h-1.5 bg-outline"></span><span class="w-px h-1.5 bg-outline"></span><span class="w-px h-1.5 bg-outline"></span><span class="w-0.5 h-2 bg-secondary"></span><span class="w-px h-1.5 bg-outline"></span><span class="w-px h-1.5 bg-outline"></span><span class="w-px h-1.5 bg-outline"></span><span class="w-0.5 h-3 bg-primary"></span><span class="w-px h-1.5 bg-outline"></span><span class="w-px h-1.5 bg-outline"></span><span class="w-px h-1.5 bg-outline"></span><span class="w-0.5 h-2 bg-secondary"></span><span class="w-px h-1.5 bg-outline"></span><span class="w-px h-1.5 bg-outline"></span><span class="w-px h-1.5 bg-outline"></span><span class="w-0.5 h-3 bg-primary"></span></div></div></div></div>
+</div>
+</div>
+</div>
+<!-- Bottom Drawer: Active Inspection Point & Action Sheet -->
+<section class="bg-surface-container border-t border-surface-container-highest px-4 py-3 shrink-0 flex flex-col gap-2.5 shadow-2xl">
+<!-- Inspection Points Carousel Tabs -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1 text-nowrap no-scrollbar">
+<button class="tab-point flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-primary text-on-primary transition-all shadow-sm shrink-0" id="tab-pt-1" onclick="selectInspectionPoint(1)" type="button">
+<span class="w-4 h-4 rounded-full bg-surface/20 flex items-center justify-center text-[10px]">1</span>
+<span>Apoio P-02 (Traspasse)</span>
+</button>
+<button class="tab-point flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-all shrink-0" id="tab-pt-2" onclick="selectInspectionPoint(2)" type="button">
+<span class="w-4 h-4 rounded-full bg-surface/20 flex items-center justify-center text-[10px]">2</span>
+<span>Cobrimento 25mm</span>
+</button>
+<button class="tab-point flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-all shrink-0" id="tab-pt-3" onclick="selectInspectionPoint(3)" type="button">
+<span class="w-4 h-4 rounded-full bg-surface/20 flex items-center justify-center text-[10px]">3</span>
+<span>Gancho de Ancoragem</span>
+</button>
+</div>
+<!-- Active Note Detail Card -->
+<div class="bg-surface-container-high p-3 rounded-xl border border-outline-variant/30 flex items-start gap-3 shadow-inner" id="card-note-details">
+<div class="w-8 h-8 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center shrink-0 mt-0.5" id="note-badge-icon">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center justify-between gap-2">
+<h4 class="font-label-md text-xs font-bold text-primary uppercase tracking-wide truncate" id="note-title">Pin 1: Atenção ao Traspasse no Apoio P-02</h4>
+<span class="font-label-sm text-[10px] text-on-surface-variant shrink-0" id="note-author">Nota do Eng. Maurício</span>
+</div>
+<p class="font-body-sm text-xs text-on-surface mt-1 leading-relaxed" id="note-text">
+          Traspasse mínimo conferido de 68cm (45ø NBR 6118). Atenção à amarra dos estribos no nó.
+        </p>
+</div>
+</div>
+<!-- Inspection Quick Action Triggers -->
+<div class="p-2.5 rounded-xl bg-surface-container-high border border-primary/30 flex items-center justify-between gap-2 shadow-sm" id="measure-status-card"><div class="flex items-center gap-2 min-w-0"><div class="w-7 h-7 rounded-lg bg-primary-container/20 text-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[16px]">straighten</span></div><div class="flex flex-col min-w-0"><div class="flex items-center gap-1.5 flex-wrap"><span class="font-label-sm text-xs font-bold text-on-surface">Cota Medida: <span class="text-primary font-mono" id="measure-live-text">68 cm</span></span><span class="text-outline-variant text-[10px]">|</span><span class="font-body-sm text-[11px] text-on-surface-variant">Tolerância NBR: ±2 cm</span></div><span class="font-body-sm text-[11px] text-emerald-400 font-semibold truncate flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Status: Conforme para concretagem das 15h</span></div></div><div class="flex items-center gap-1.5 shrink-0"><button class="px-2 py-1 rounded-lg bg-surface-container-highest hover:bg-surface-bright text-tertiary font-label-sm text-[11px] font-semibold active:scale-95 transition-all flex items-center gap-1 border border-tertiary/30" onclick="sendMeasurementToChat()" title="Enviar cota ao chat do mentor" type="button"><span class="material-symbols-outlined text-[14px]">send</span><span class="hidden sm:inline">Ao Mentor</span></button><button class="px-2 py-1 rounded-lg bg-primary-container hover:bg-tertiary-container text-on-primary-container font-label-sm text-[11px] font-bold active:scale-95 transition-all flex items-center gap-1 shadow-xs" onclick="saveMeasurementToRDO()" title="Fixar cota no RDO diário" type="button"><span class="material-symbols-outlined text-[14px]">assignment_turned_in</span><span>Salvar RDO</span></button></div></div><div class="grid grid-cols-3 gap-2 pt-1">
+<button class="flex items-center justify-center gap-1.5 py-2 px-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-label-md text-xs font-bold transition-transform active:scale-95 shadow-md" id="btn-approve-beam" onclick="approveBeamAction()" type="button">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span class="truncate">Liberar Viga</span>
+</button>
+<button class="flex items-center justify-center gap-1.5 py-2 px-2 rounded-xl bg-surface-container-highest hover:bg-surface-bright text-on-surface font-label-md text-xs font-semibold transition-colors active:scale-95 border border-outline-variant/40" onclick="addQuickFieldNote()" type="button">
+<span class="material-symbols-outlined text-[16px] text-tertiary">edit_note</span>
+<span class="truncate">Nota Campo</span>
+</button>
+<button class="flex items-center justify-center gap-1.5 py-2 px-2 rounded-xl bg-primary-container hover:bg-tertiary-container text-on-primary-container font-label-md text-xs font-bold transition-transform active:scale-95 shadow-sm" onclick="playMentorVoiceClip()" type="button">
+<span class="material-symbols-outlined text-[16px]">volume_up</span>
+<span class="truncate">Áudio Mentor</span>
+</button>
+</div>
+</section>
+</div>
+<!-- Micro-interactions & Audio Player Feedback Script -->
+<script>
+    function insertTag(tagText) {
+      const input = document.getElementById('chat-input');
+      if (input) {
+        input.value = input.value ? input.value + ' ' + tagText + ' ' : tagText + ' ';
+        input.focus();
+      }
+    }
+
+    // Interactive Blueprint Modal Controller
+    let currentZoom = 1;
+    let pinsVisible = true;
+    const inspectionPoints = {
+      1: {
+        title: "Pin 1: Atenção ao Traspasse no Apoio P-02",
+        author: "Nota do Eng. Maurício (14:26)",
+        text: "Traspasse mínimo conferido de 68cm (45ø NBR 6118). Atenção à amarra dos estribos no nó.",
+        color: "text-primary",
+        bg: "bg-primary-container",
+        icon: "verified"
+      },
+      2: {
+        title: "Pin 2: Cobrimento de Concreto 25mm",
+        author: "Inspeção NBR 6118",
+        text: "Cobrimento nominal c_nom = 2,5 cm verificado com espaçador pastilha.",
+        color: "text-emerald-400",
+        bg: "bg-emerald-500",
+        icon: "straighten"
+      },
+      3: {
+        title: "Pin 3: Gancho de Ancoragem",
+        author: "Detalhamento de Armação",
+        text: "Gancho a 90° com raio de dobramento r = 3ø (48mm) liberado.",
+        color: "text-tertiary",
+        bg: "bg-tertiary-container",
+        icon: "turn_sharp_right"
+      }
+    };
+
+    function openBlueprintViewer() {
+      const modal = document.getElementById('blueprint-modal');
+      if (modal) {
+        modal.classList.remove('opacity-0', 'pointer-events-none');
+        modal.classList.add('opacity-100', 'pointer-events-auto');
+        selectInspectionPoint(1);
+      }
+    }
+
+    function closeBlueprintViewer() {
+      const modal = document.getElementById('blueprint-modal');
+      if (modal) {
+        modal.classList.remove('opacity-100', 'pointer-events-auto');
+        modal.classList.add('opacity-0', 'pointer-events-none');
+      }
+    }
+
+    function updateZoom(factor) {
+      const stage = document.getElementById('blueprint-stage');
+      const resetBtn = document.getElementById('btn-zoom-reset');
+      if (!stage) return;
+      currentZoom = Math.max(0.7, Math.min(2.5, currentZoom * factor));
+      stage.style.transform = `scale(${currentZoom})`;
+      if (resetBtn) resetBtn.textContent = Math.round(currentZoom * 100) + '%';
+    }
+
+    function resetZoom() {
+      const stage = document.getElementById('blueprint-stage');
+      const resetBtn = document.getElementById('btn-zoom-reset');
+      currentZoom = 1;
+      if (stage) stage.style.transform = 'scale(1)';
+      if (resetBtn) resetBtn.textContent = '100%';
+    }
+
+    function toggleMentorPins() {
+      const pinsLayer = document.getElementById('pins-layer');
+      const icon = document.getElementById('icon-toggle-pins');
+      const label = document.getElementById('text-toggle-pins');
+      pinsVisible = !pinsVisible;
+      if (pinsLayer) {
+        pinsLayer.style.display = pinsVisible ? 'block' : 'none';
+      }
+      if (icon) {
+        icon.textContent = pinsVisible ? 'visibility' : 'visibility_off';
+      }
+      if (label) {
+        label.textContent = pinsVisible ? 'Notas Mentor' : 'Oculto';
+      }
+    }
+
+    function selectInspectionPoint(id) {
+      const point = inspectionPoints[id];
+      if (!point) return;
+
+      const titleEl = document.getElementById('note-title');
+      const authorEl = document.getElementById('note-author');
+      const textEl = document.getElementById('note-text');
+      const badgeIcon = document.getElementById('note-badge-icon');
+
+      if (titleEl) {
+        titleEl.textContent = point.title;
+        titleEl.className = `font-label-md text-xs font-bold uppercase tracking-wide truncate ${point.color}`;
+      }
+      if (authorEl) authorEl.textContent = point.author;
+      if (textEl) textEl.textContent = point.text;
+      if (badgeIcon) {
+        badgeIcon.className = `w-8 h-8 rounded-lg flex items-center justify-center shrink-0 mt-0.5 text-on-surface ${point.bg}`;
+        badgeIcon.innerHTML = `<span class="material-symbols-outlined text-[18px]">${point.icon}</span>`;
+      }
+
+      // Update Tab Styles
+      for (let i = 1; i <= 3; i++) {
+        const tab = document.getElementById(`tab-pt-${i}`);
+        if (tab) {
+          if (i === id) {
+            tab.className = 'tab-point flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-primary text-on-primary transition-all shadow-sm shrink-0';
+          } else {
+            tab.className = 'tab-point flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-all shrink-0';
+          }
+        }
+      }
+    }
+
+    function approveBeamAction() {
+      const btn = document.getElementById('btn-approve-beam');
+      if (btn) {
+        btn.innerHTML = `<span class="material-symbols-outlined text-[16px]">task_alt</span><span class="truncate">Viga Liberada!</span>`;
+        btn.classList.remove('bg-emerald-600', 'hover:bg-emerald-500');
+        btn.classList.add('bg-emerald-700');
+        setTimeout(() => {
+          closeBlueprintViewer();
+          insertTag('✅ Viga V-102 Liberada para Concretagem das 15h (NBR 6118 conferida).');
+        }, 800);
+      }
+    }
+
+    function addQuickFieldNote() {
+      closeBlueprintViewer();
+      const input = document.getElementById('chat-input');
+      if (input) {
+        input.value = "Nota sobre a Prancha E-04 (V-102): ";
+        input.focus();
+      }
+    }
+
+    function playMentorVoiceClip() {
+      const btnPlay = document.getElementById('btn-play-audio');
+      if (btnPlay) {
+        btnPlay.click();
+      }
+    }
+
+    (function() {
+      // Zoom button attachments
+      const btnZoomIn = document.getElementById('btn-zoom-in');
+      const btnZoomOut = document.getElementById('btn-zoom-out');
+      const btnZoomReset = document.getElementById('btn-zoom-reset');
+      const btnTogglePins = document.getElementById('btn-toggle-pins');
+
+      if (btnZoomIn) btnZoomIn.addEventListener('click', () => updateZoom(1.2));
+      if (btnZoomOut) btnZoomOut.addEventListener('click', () => updateZoom(0.83));
+      if (btnZoomReset) btnZoomReset.addEventListener('click', resetZoom);
+      if (btnTogglePins) btnTogglePins.addEventListener('click', toggleMentorPins);
+
+      // Audio Player simulation
+      const btnPlay = document.getElementById('btn-play-audio');
+      const playIcon = document.getElementById('play-icon');
+      const timer = document.getElementById('audio-timer');
+      let isPlaying = false;
+      let intervalId = null;
+      let seconds = 42;
+
+      if (btnPlay) {
+        btnPlay.addEventListener('click', function() {
+          isPlaying = !isPlaying;
+          if (isPlaying) {
+            playIcon.textContent = 'pause';
+            btnPlay.classList.add('scale-105');
+            intervalId = setInterval(() => {
+              if (seconds > 0) {
+                seconds--;
+                const formatted = '0:' + (seconds < 10 ? '0' : '') + seconds;
+                if (timer) timer.textContent = formatted;
+              } else {
+                clearInterval(intervalId);
+                isPlaying = false;
+                playIcon.textContent = 'play_arrow';
+                seconds = 42;
+                if (timer) timer.textContent = '0:42';
+              }
+            }, 1000);
+          } else {
+            playIcon.textContent = 'play_arrow';
+            btnPlay.classList.remove('scale-105');
+            clearInterval(intervalId);
+          }
+        });
+      }
+
+      // Input send micro-interaction
+      const btnSend = document.getElementById('btn-send');
+      const input = document.getElementById('chat-input');
+      if (btnSend && input) {
+        btnSend.addEventListener('click', function() {
+          const val = input.value.trim();
+          if (!val) return;
+          input.value = '';
+          input.placeholder = 'Enviado! Analisando...';
+          setTimeout(() => {
+            input.placeholder = 'Dúvida técnica ou norma NBR...';
+          }, 1500);
+        });
+      }
+
+      // Mic hold micro-feedback
+      const btnMic = document.getElementById('btn-mic');
+      if (btnMic) {
+        btnMic.addEventListener('click', function() {
+          this.classList.toggle('text-error');
+          this.classList.toggle('bg-error-container');
+        });
+      }
+    })();
+  </script>
+</div></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_-4px_20px_rgba(0,0,0,0.5)]" data-active-classes="text-primary-container bg-surface-container"><div class="flex items-center justify-around h-16 px-space-xs"><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] py-1 px-1.5 rounded-lg text-on-surface-variant transition-colors hover:text-on-surface" data-path="inicio-e-login" href="#"><span class="material-symbols-outlined text-[22px]">dashboard</span><span class="font-label-sm text-label-sm mt-0.5 tracking-tight">Início</span></a><a aria-current="page" class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] py-1 px-1.5 rounded-lg transition-colors text-primary-container bg-surface-container" data-path="chat-com-mentor" href="#"><span class="material-symbols-outlined text-[22px]">forum</span><span class="font-label-sm text-label-sm mt-0.5 tracking-tight">Chat Mentor</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] py-1 px-1.5 rounded-lg text-on-surface-variant transition-colors hover:text-on-surface" data-path="mentoria-e-guias" href="#"><span class="material-symbols-outlined text-[22px]">engineering</span><span class="font-label-sm text-label-sm mt-0.5 tracking-tight">Mentoria</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] py-1 px-1.5 rounded-lg text-on-surface-variant transition-colors hover:text-on-surface" data-path="diario-de-obra" href="#"><span class="material-symbols-outlined text-[22px]">edit_calendar</span><span class="font-label-sm text-label-sm mt-0.5 tracking-tight">Diário</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] py-1 px-1.5 rounded-lg text-on-surface-variant transition-colors hover:text-on-surface" data-path="calculadoras" href="#"><span class="material-symbols-outlined text-[22px]">calculate</span><span class="font-label-sm text-label-sm mt-0.5 tracking-tight">Cálculo</span></a></div></nav><script>
+  let rulerActive = true;
+  let currentScaleFactor = 25;
+  let currentMeasureVal = 68.0;
+
+  function toggleRulerTool() {
+    const rulerLayer = document.getElementById('measurement-layer');
+    const btn = document.getElementById('btn-toggle-ruler');
+    const statusCard = document.getElementById('measure-status-card');
+    rulerActive = !rulerActive;
+    if (rulerLayer) {
+      rulerLayer.style.display = rulerActive ? 'block' : 'none';
+    }
+    if (statusCard) {
+      statusCard.style.display = rulerActive ? 'flex' : 'none';
+    }
+    if (btn) {
+      if (rulerActive) {
+        btn.className = 'flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-primary-container text-on-primary-container hover:bg-tertiary-container text-xs font-semibold transition-all active:scale-95 shadow-sm';
+      } else {
+        btn.className = 'flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-surface-container-high text-on-surface-variant hover:text-on-surface text-xs font-semibold transition-all active:scale-95';
+      }
+    }
+  }
+
+  function setMeasureScale(label, factor) {
+    currentScaleFactor = factor;
+    const activePill = document.getElementById('scale-pill-active');
+    if (activePill) {
+      activePill.textContent = label;
+    }
+    const rulerBadge = document.getElementById('ruler-value-badge');
+    const liveText = document.getElementById('measure-live-text');
+    const computed = (factor === 20 ? 54.4 : factor === 50 ? 136.0 : 68.0);
+    currentMeasureVal = computed;
+    if (rulerBadge) rulerBadge.textContent = computed.toFixed(1) + ' cm';
+    if (liveText) liveText.textContent = computed.toFixed(1) + ' cm';
+  }
+
+  function resetMeasurement() {
+    setMeasureScale('1:25', 25);
+    const rulerBadge = document.getElementById('ruler-value-badge');
+    const liveText = document.getElementById('measure-live-text');
+    if (rulerBadge) rulerBadge.textContent = '68.0 cm';
+    if (liveText) liveText.textContent = '68 cm';
+  }
+
+  function sendMeasurementToChat() {
+    closeBlueprintViewer();
+    insertTag('📐 Medição Virtual Prancha E-04: Transpasse V-102 = ' + currentMeasureVal.toFixed(1) + ' cm (Escala 1:' + currentScaleFactor + ', NBR 6118 Conforme).');
+  }
+
+  function saveMeasurementToRDO() {
+    const statusCard = document.getElementById('measure-status-card');
+    if (statusCard) {
+      statusCard.classList.add('ring-2', 'ring-emerald-400');
+      setTimeout(() => {
+        statusCard.classList.remove('ring-2', 'ring-emerald-400');
+        closeBlueprintViewer();
+        insertTag('📝 Medição salva na Ficha RDO: Cota de transpasse V-102 conferida em ' + currentMeasureVal.toFixed(1) + ' cm.');
+      }, 600);
+    }
+  }
+</script></body></html>

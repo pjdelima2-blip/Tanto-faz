@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-surface-variant": "#dcc1b1", "on-secondary-fixed-variant": "#394857", "surface-container-high": "#272a2d", "on-tertiary": "#432c00", "tertiary-fixed": "#ffdeac", "on-secondary-fixed": "#0d1d2a", "on-error": "#690005", "tertiary-fixed-dim": "#fabc4c", "primary-fixed-dim": "#ffb783", "surface-container-low": "#191c1f", "primary-fixed": "#ffdcc5", "on-error-container": "#ffdad6", "on-tertiary-container": "#442d00", "outline": "#a48c7d", "on-surface": "#e1e2e7", "on-tertiary-fixed-variant": "#604100", "tertiary": "#fabc4c", "secondary-container": "#3c4b5a", "on-primary-fixed-variant": "#713700", "on-primary": "#4f2500", "inverse-primary": "#944a00", "surface": "#111417", "background": "#111417", "on-primary-container": "#502600", "error": "#ffb4ab", "surface-dim": "#111417", "surface-container-highest": "#323538", "surface-container": "#1d2023", "surface-bright": "#37393d", "primary-container": "#e67e22", "outline-variant": "#564337", "on-secondary": "#233240", "inverse-surface": "#e1e2e7", "surface-variant": "#323538", "inverse-on-surface": "#2e3134", "on-background": "#e1e2e7", "tertiary-container": "#c78f21", "secondary-fixed": "#d4e4f7", "on-tertiary-fixed": "#281900", "secondary-fixed-dim": "#b8c8da", "secondary": "#b8c8da", "primary": "#ffb783", "error-container": "#93000a", "surface-container-lowest": "#0b0e11", "on-primary-fixed": "#301400", "on-secondary-container": "#aabacc", "surface-tint": "#ffb783" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin-mobile": "1rem", "gutter": "1rem", "space-md": "1rem", "space-xl": "2.25rem", "space-sm": "0.5rem", "margin": "1.5rem", "space-xs": "0.25rem", "space-lg": "1.5rem", "gutter-mobile": "0.75rem" }, "fontFamily": { "body-sm": ["Hanken Grotesk"], "body-md": ["Hanken Grotesk"], "headline-sm": ["Manrope"], "headline-lg-mobile": ["Manrope"], "display-lg": ["Manrope"], "label-lg": ["Hanken Grotesk"], "headline-lg": ["Manrope"], "body-lg": ["Hanken Grotesk"], "label-sm": ["Hanken Grotesk"], "headline-md": ["Manrope"], "label-md": ["Hanken Grotesk"] }, "fontSize": { "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}], "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}], "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}], "headline-lg-mobile": ["26px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}], "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}], "label-lg": ["14px", {"lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600"}], "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "700"}], "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}], "label-sm": ["10px", {"lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "700"}], "headline-md": ["22px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}], "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600"}] } } } }</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl pt-safe shadow-[0_4px_16px_rgba(0,0,0,0.4)]"><div class="h-16 px-margin-mobile flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><img alt="EngBuild Logo" class="h-8 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1zTrKLsYvsRO4BoBiAbai3X7P9I4d-gp-FbVJ3IVBklKxSSDWhLuT5Wx_C2JRAfsCfKrqR5Yp93hMOZMWO4NvJionKR-zLvHq3qXshDZtBW508vdNnqOTPq9cVc_oqIJDQy9e7k0OuOqDQ07_7YqXc1aAUt5z4_a241KZc1dBC7wv8r9S93MQleZa4CpRxA_br7rH6avUNQNQ_EExvejvf3t_3LBbFZ_NgjjfGrA"/><div class="flex flex-col min-w-0"><div class="flex items-center gap-1.5"><span class="font-headline-sm text-headline-sm text-on-surface truncate">EngMentor</span><div class="flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-surface-container-high"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span><span class="font-label-sm text-label-sm text-primary uppercase">Obra Conectada</span></div></div><span class="font-label-sm text-label-sm text-on-surface-variant truncate">Calculadoras</span></div></div><div class="flex items-center gap-space-sm shrink-0"><button aria-label="Emergência Técnica" class="w-11 h-11 rounded-lg flex items-center justify-center bg-surface-container-high text-primary hover:bg-surface-container-highest transition-colors"><span class="material-symbols-outlined text-[20px]">support_agent</span></button><img alt="Profile" class="w-8 h-8 rounded-full object-cover shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNG8-nVbgo5yMt7MNFkpDCkNC5MOUnMO44m3lRTq6XE41yE8LhIh5LbbyNi6F2i4vYsOZfE2XjW7O9FA1d2xvbEF1N7GKWqQqoR6V3mc7IWr4rbZPNOAqNxr7OYZ8lz4ik14YLtON5oqt87kozypRXflC-UFMuNBvHJGxTZ4-ZF8RlFX0RJpzItZJ5_Wprmn6tWpiacyWsdTErql3bxgJd8tdzb1b2JVHfOVjkNJM"/></div></div></header><main class="flex flex-col relative w-full pt-16 pb-20 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Status & Context Card -->
+<div class="px-margin-mobile py-space-sm flex flex-col gap-space-sm">
+<div class="bg-surface-container rounded-xl p-space-md shadow-md flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[24px]">construction</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">Cálculo Rápido de Campo</span>
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Parâmetros NBR 6118 / 14931</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-highest shrink-0">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Offline Ativo</span>
+</div>
+</div>
+<!-- Quick Tool Selector Tabs -->
+<div class="flex items-center gap-space-xs overflow-x-auto pb-1 no-scrollbar">
+<button class="calc-tab flex items-center gap-1.5 px-3 py-2 rounded-lg bg-primary text-on-primary font-label-md text-label-md shrink-0 shadow-sm transition-all" id="tab-concreto" onclick="switchCalc('concreto')">
+<span class="material-symbols-outlined text-[18px]">inventory_2</span>
+        Concreto &amp; Insumos
+      </button>
+<button class="calc-tab flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container-high text-on-surface-variant font-label-md text-label-md shrink-0 transition-all hover:text-on-surface" id="tab-aco" onclick="switchCalc('aco')">
+<span class="material-symbols-outlined text-[18px]">reorder</span>
+        Armadura &amp; Aço
+      </button>
+<button class="calc-tab flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container-high text-on-surface-variant font-label-md text-label-md shrink-0 transition-all hover:text-on-surface" id="tab-desforma" onclick="switchCalc('desforma')">
+<span class="material-symbols-outlined text-[18px]">event_repeat</span>
+        Cura &amp; Desforma
+      </button>
+<button class="calc-tab flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container-high text-on-surface-variant font-label-md text-label-md shrink-0 transition-all hover:text-on-surface" id="tab-conversor" onclick="switchCalc('conversor')">
+<span class="material-symbols-outlined text-[18px]">sync_alt</span>
+        Conversor
+      </button>
+</div>
+</div>
+<!-- SECTION 1: CALCULADORA DE CONCRETO (Default Visible) -->
+<div class="calc-panel px-margin-mobile flex flex-col gap-space-md" id="panel-concreto">
+<!-- Visual banner card with architectural depth -->
+<div class="relative rounded-xl overflow-hidden shadow-lg bg-surface-container-low">
+<div class="bg-cover bg-center w-full h-28 relative" data-alt="Close-up of fresh wet structural concrete pouring into reinforced wooden formwork at an active construction building site, illuminated by golden hour warm sunlight reflecting off aggregate and steel rebar grid, photorealistic editorial style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD33Ab74iThVyUovnEd5Y0r9zil__sCuT4W7noN7t1Febe4WI3Iq6LV4H1ztF05fWiLCLRY2ktYxCp1urpel7AMtKMsBKfTIPRG8MSjrZOU1ykCCjj8AqlE4hgfAfQk-AN4Fk4eDkN5krdCgpguBJMacjUknSE1lzMxEWta-_SXzEkvFUHYgH4eTI3txPIew2vFjJhhGP7oHwKcW76qimKp794MmPNTaNsDvoOAYkk')">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-surface-container/70 to-transparent"></div>
+<div class="absolute bottom-2.5 left-3 right-3 flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase">Dimensionamento In-Situ</span>
+<p class="font-headline-sm text-headline-sm text-on-surface">Volume &amp; Traço Padrão</p>
+</div>
+<span class="material-symbols-outlined text-primary text-[28px]">token</span>
+</div>
+</div>
+</div>
+<!-- Sliders and Inputs Bento Card -->
+<div class="bg-surface-container rounded-xl p-space-md shadow-md flex flex-col gap-space-md">
+<!-- Volume Slider -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex justify-between items-center">
+<label class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">straighten</span>
+            Volume da Peça (m³)
+          </label>
+<span class="font-headline-sm text-headline-sm text-primary" id="vol-display">4.5 m³</span>
+</div>
+<input class="w-full accent-primary h-2 rounded-lg bg-surface-container-highest cursor-pointer" id="vol-slider" max="30" min="0.5" oninput="calcConcreto()" step="0.5" type="range" value="4.5"/>
+<div class="flex justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>0.5 m³ (Sapata/Pilar)</span>
+<span>15 m³</span>
+<span>30 m³ (Laje grande)</span>
+</div>
+</div>
+<!-- Resistance fck Selector Chips -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary">compress</span>
+          Resistência Característica (fck)
+        </label>
+<div class="grid grid-cols-3 gap-space-xs">
+<button class="fck-btn py-2 px-1 rounded-lg bg-surface-container-high text-on-surface font-label-md text-label-md text-center transition-all hover:bg-surface-container-highest" onclick="setFck(20, this)" type="button">
+            20 MPa
+            <span class="block font-label-sm text-label-sm text-on-surface-variant">Lajes/Pisos</span>
+</button>
+<button class="fck-btn py-2 px-1 rounded-lg bg-primary-container text-on-surface font-label-md text-label-md text-center shadow-sm" onclick="setFck(25, this)" type="button">
+            25 MPa
+            <span class="block font-label-sm text-label-sm text-on-primary-container font-semibold">Vigas/Pilares</span>
+</button>
+<button class="fck-btn py-2 px-1 rounded-lg bg-surface-container-high text-on-surface font-label-md text-label-md text-center transition-all hover:bg-surface-container-highest" onclick="setFck(30, this)" type="button">
+            30 MPa
+            <span class="block font-label-sm text-label-sm text-on-surface-variant">Fundação/Alta Carga</span>
+</button>
+</div>
+</div>
+<!-- Perda Adicional Checkbox -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2">
+<input checked="" class="w-4 h-4 rounded accent-primary bg-surface-container-high" id="loss-margin" onchange="calcConcreto()" type="checkbox"/>
+<label class="font-body-md text-body-md text-on-surface cursor-pointer" for="loss-margin">Adicionar margem de perda (+10%)</label>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary bg-surface-container-high px-2 py-0.5 rounded">Recomendado</span>
+</div>
+</div>
+<!-- Concrete Breakdown Amber Highlights -->
+<div class="bg-surface-container-low rounded-xl p-space-md shadow-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">Lista Estimada de Insumos</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-2 py-0.5 rounded" id="traço-tag">Traço 1 : 2 : 2.5</span>
+</div>
+<!-- Breakdown Grid -->
+<div class="grid grid-cols-2 gap-space-xs pt-1">
+<!-- Cimento -->
+<div class="bg-surface-container rounded-lg p-space-sm flex flex-col">
+<div class="flex items-center gap-1.5 text-on-surface-variant mb-1">
+<span class="material-symbols-outlined text-[18px] text-primary">shopping_bag</span>
+<span class="font-label-sm text-label-sm">Cimento (50kg)</span>
+</div>
+<span class="font-headline-md text-headline-md text-primary" id="res-cimento">37</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">sacos (~1.850 kg)</span>
+</div>
+<!-- Areia Média -->
+<div class="bg-surface-container rounded-lg p-space-sm flex flex-col">
+<div class="flex items-center gap-1.5 text-on-surface-variant mb-1">
+<span class="material-symbols-outlined text-[18px] text-tertiary">grain</span>
+<span class="font-label-sm text-label-sm">Areia Lavada</span>
+</div>
+<span class="font-headline-md text-headline-md text-on-surface" id="res-areia">3.2</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">m³ (~4.800 kg)</span>
+</div>
+<!-- Brita 1 -->
+<div class="bg-surface-container rounded-lg p-space-sm flex flex-col">
+<div class="flex items-center gap-1.5 text-on-surface-variant mb-1">
+<span class="material-symbols-outlined text-[18px] text-secondary">apps</span>
+<span class="font-label-sm text-label-sm">Brita 1</span>
+</div>
+<span class="font-headline-md text-headline-md text-on-surface" id="res-brita">4.0</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">m³ (~5.600 kg)</span>
+</div>
+<!-- Água -->
+<div class="bg-surface-container rounded-lg p-space-sm flex flex-col">
+<div class="flex items-center gap-1.5 text-on-surface-variant mb-1">
+<span class="material-symbols-outlined text-[18px] text-primary">water_drop</span>
+<span class="font-label-sm text-label-sm">Água (a/c 0.52)</span>
+</div>
+<span class="font-headline-md text-headline-md text-primary" id="res-agua">962</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">litros</span>
+</div>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-high mt-1 flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">tips_and_updates</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Dica do Mentor: Ao receber concreto usinado, solicite sempre o ensaio de abatimento de tronco de cone (<strong class="text-on-surface">Slump Test</strong>) no canteiro antes da autorização da bomba.
+        </p>
+</div>
+</div>
+</div>
+<!-- SECTION 2: ARMADURA & CONSUMO DE AÇO -->
+<div class="calc-panel hidden px-margin-mobile flex flex-col gap-space-md" id="panel-aco">
+<div class="relative rounded-xl overflow-hidden shadow-lg bg-surface-container-low">
+<div class="bg-cover bg-center w-full h-28 relative" data-alt="Dense grid of rebar steel cages and stirrups ready for beam casting at high rise construction site with amber sunset light glinting on steel ribbed textures, cinematic engineering photography." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBdZrVrdKfxV9L0FPGNQlX0Fo1x8qQVhcLeRZqbtQGZ-ntYyha0NnKAeaoeaihKydF0UBfBM7C1PbBLxDmfl2522ILM_D306AkCXtpIHMxNk7yKeqwiyVNw-ryuSf51obe-pgOG66NO2T64SI2ULVSrGBgspcyFv2Mfms7JzvzJ6-NZ_pQw2IvZU7tVrtMJfEdirklXZ59s5C2GZ5P9AHD_7EQ6gto25tWxKphG2D0')">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-surface-container/70 to-transparent"></div>
+<div class="absolute bottom-2.5 left-3 right-3 flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase">Taxa de Aço</span>
+<p class="font-headline-sm text-headline-sm text-on-surface">Estimativa CA-50 / CA-60</p>
+</div>
+<span class="material-symbols-outlined text-primary text-[28px]">format_align_justify</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container rounded-xl p-space-md shadow-md flex flex-col gap-space-md">
+<!-- Element Type Selector -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">Tipo de Elemento Estrutural</label>
+<div class="grid grid-cols-2 gap-space-xs">
+<button class="elem-btn p-2 rounded-lg bg-primary-container text-on-surface text-left" onclick="setElemType('pilar', this)" type="button">
+<span class="font-headline-sm text-headline-sm text-on-surface block">Pilares</span>
+<span class="font-label-sm text-label-sm text-on-primary-container">100 - 120 kg/m³</span>
+</button>
+<button class="elem-btn p-2 rounded-lg bg-surface-container-high text-on-surface text-left" onclick="setElemType('viga', this)" type="button">
+<span class="font-headline-sm text-headline-sm text-on-surface block">Vigas</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">80 - 100 kg/m³</span>
+</button>
+<button class="elem-btn p-2 rounded-lg bg-surface-container-high text-on-surface text-left" onclick="setElemType('laje', this)" type="button">
+<span class="font-headline-sm text-headline-sm text-on-surface block">Lajes Maciças</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">50 - 70 kg/m³</span>
+</button>
+<button class="elem-btn p-2 rounded-lg bg-surface-container-high text-on-surface text-left" onclick="setElemType('sapata', this)" type="button">
+<span class="font-headline-sm text-headline-sm text-on-surface block">Fundações</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">40 - 60 kg/m³</span>
+</button>
+</div>
+</div>
+<!-- Volume input for rebar -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex justify-between items-center">
+<label class="font-label-md text-label-md text-on-surface-variant">Volume de Concreto a Armar</label>
+<span class="font-headline-sm text-headline-sm text-primary" id="steel-vol-display">6.0 m³</span>
+</div>
+<input class="w-full accent-primary h-2 rounded-lg bg-surface-container-highest cursor-pointer" id="steel-vol-slider" max="25" min="1" oninput="calcSteel()" step="0.5" type="range" value="6.0"/>
+</div>
+</div>
+<!-- Steel Results Bento -->
+<div class="bg-surface-container-low rounded-xl p-space-md shadow-md flex flex-col gap-space-sm">
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">Aço Necessário Estimado</span>
+<div class="grid grid-cols-2 gap-space-xs pt-1">
+<div class="bg-surface-container rounded-lg p-space-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Aço CA-50 (Longitudinal)</span>
+<span class="font-headline-md text-headline-md text-primary" id="res-ca50">567 kg</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant block" id="res-barras">~ 48 barras (12m - 10mm)</span>
+</div>
+<div class="bg-surface-container rounded-lg p-space-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Aço CA-60 (Estribos/Malha)</span>
+<span class="font-headline-md text-headline-md text-tertiary" id="res-ca60">93 kg</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">~ 41 barras (12m - 5mm)</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-high mt-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">scale</span>
+<span class="font-label-md text-label-md text-on-surface">Peso Total de Armadura</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-primary font-bold" id="res-total-steel">660 kg</span>
+</div>
+</div>
+</div>
+<!-- SECTION 3: CURA E DESFORMA (NBR 14931) -->
+<div class="calc-panel hidden px-margin-mobile flex flex-col gap-space-md" id="panel-desforma">
+<div class="bg-surface-container rounded-xl p-space-md shadow-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase">NBR 14931 / NBR 6118</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Prazos Mínimos de Desforma</h3>
+</div>
+<span class="material-symbols-outlined text-primary text-[26px]">timer</span>
+</div>
+<!-- Cimento Tipo Selector -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">Tipo de Cimento Empregado</label>
+<select class="w-full bg-surface-container-high text-on-surface px-3 py-2.5 rounded-lg font-body-md text-body-md focus:outline-none" id="cement-type" onchange="calcDesforma()">
+<option value="ari">CP V-ARI (Alta Resistência Inicial)</option>
+<option selected="" value="comum">CP II / CP III / CP IV (Comum / Pozolânico)</option>
+</select>
+</div>
+<!-- Temperatura Média Ambiente -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex justify-between items-center">
+<label class="font-label-md text-label-md text-on-surface-variant">Temperatura Média do Canteiro</label>
+<span class="font-headline-sm text-headline-sm text-tertiary" id="temp-display">22°C</span>
+</div>
+<input class="w-full accent-tertiary h-2 rounded-lg bg-surface-container-highest cursor-pointer" id="temp-slider" max="38" min="10" oninput="calcDesforma()" step="1" type="range" value="22"/>
+<div class="flex justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>10°C (Frio / Retarda)</span>
+<span>&gt;20°C (Normal)</span>
+<span>35°C (Acelera / Risco Fissura)</span>
+</div>
+</div>
+</div>
+<!-- Timeline / Step Guidance -->
+<div class="bg-surface-container-low rounded-xl p-space-md shadow-md flex flex-col gap-space-sm">
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">Cronograma Seguro de Retirada</span>
+<div class="flex flex-col gap-2 pt-1">
+<!-- Item 1 -->
+<div class="bg-surface-container rounded-lg p-space-sm flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-7 h-7 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-xs">1</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface block text-sm">Faces Laterais &amp; Paredes</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Pilares e vigas sem sustentação</span>
+</div>
+</div>
+<span class="font-headline-sm text-headline-sm text-primary" id="prazo-laterais">3 dias</span>
+</div>
+<!-- Item 2 -->
+<div class="bg-surface-container rounded-lg p-space-sm flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-7 h-7 rounded-full bg-tertiary/20 text-tertiary flex items-center justify-center font-bold text-xs">2</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface block text-sm">Faces Inferiores c/ Escoramento</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Manter pontaletes remanescentes</span>
+</div>
+</div>
+<span class="font-headline-sm text-headline-sm text-tertiary" id="prazo-inferiores-parcial">14 dias</span>
+</div>
+<!-- Item 3 -->
+<div class="bg-surface-container rounded-lg p-space-sm flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-7 h-7 rounded-full bg-secondary/20 text-secondary flex items-center justify-center font-bold text-xs">3</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface block text-sm">Desforma Total (Vão Livre)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Retirada final de todos escoramentos</span>
+</div>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface" id="prazo-total">28 dias</span>
+</div>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-high mt-1 flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">warning</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Nunca desforme antes de atingir <strong class="text-on-surface">70% do fck de projeto</strong> ou sem comprovação de ruptura de corpos de prova (CP) aos 7 ou 14 dias.
+        </p>
+</div>
+</div>
+</div>
+<!-- SECTION 4: CONVERSOR DE UNIDADES DE CANTEIRO -->
+<div class="calc-panel hidden px-margin-mobile flex flex-col gap-space-md" id="panel-conversor">
+<div class="bg-surface-container rounded-xl p-space-md shadow-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase">Conversões Instantâneas</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Tensões &amp; Forças de Canteiro</h3>
+</div>
+<span class="material-symbols-outlined text-primary text-[26px]">swap_vert</span>
+</div>
+<!-- Tensão / Pressão Converter -->
+<div class="bg-surface-container-low rounded-lg p-space-sm flex flex-col gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface-variant font-bold">1. Pressão / Tensão (MPa &lt;-&gt; kgf/cm²)</span>
+<div class="flex items-center gap-2">
+<input class="w-1/2 bg-surface-container-high text-on-surface px-3 py-2 rounded font-headline-sm text-headline-sm focus:outline-none" id="input-mpa" oninput="convertMpa(this.value)" placeholder="MPa" type="number" value="25"/>
+<span class="material-symbols-outlined text-primary">arrow_forward</span>
+<div class="w-1/2 bg-surface-container px-3 py-2 rounded flex flex-col">
+<span class="font-headline-sm text-headline-sm text-primary" id="output-kgf">254.9</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">kgf/cm²</span>
+</div>
+</div>
+</div>
+<!-- Força Converter kN -> tf -->
+<div class="bg-surface-container-low rounded-lg p-space-sm flex flex-col gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface-variant font-bold">2. Carga / Força (kN &lt;-&gt; tf)</span>
+<div class="flex items-center gap-2">
+<input class="w-1/2 bg-surface-container-high text-on-surface px-3 py-2 rounded font-headline-sm text-headline-sm focus:outline-none" id="input-kn" oninput="convertKn(this.value)" placeholder="kN" type="number" value="100"/>
+<span class="material-symbols-outlined text-primary">arrow_forward</span>
+<div class="w-1/2 bg-surface-container px-3 py-2 rounded flex flex-col">
+<span class="font-headline-sm text-headline-sm text-primary" id="output-tf">10.19</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">toneladas-força (tf)</span>
+</div>
+</div>
+</div>
+<!-- Volume e Massa de Água -->
+<div class="bg-surface-container-low rounded-lg p-space-sm flex flex-col gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface-variant font-bold">3. Volume de Terra / Bota-fora (Empolamento 30%)</span>
+<div class="flex items-center gap-2">
+<input class="w-1/2 bg-surface-container-high text-on-surface px-3 py-2 rounded font-headline-sm text-headline-sm focus:outline-none" id="input-corte" oninput="convertEmpolamento(this.value)" placeholder="m³ corte" type="number" value="50"/>
+<span class="material-symbols-outlined text-primary">arrow_forward</span>
+<div class="w-1/2 bg-surface-container px-3 py-2 rounded flex flex-col">
+<span class="font-headline-sm text-headline-sm text-primary" id="output-solto">65.0</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">m³ solto (caçambas)</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Plantão Técnico do Mentor (Componente Exclusivo Fixo/Tátil) -->
+<div class="px-margin-mobile py-space-md">
+<div class="bg-surface-container rounded-xl p-space-md shadow-xl flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="relative shrink-0">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="Senior Brazilian civil engineering supervisor with safety helmet and reflective vest smiling warmly while inspecting building plans on construction site, dusk warm lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKGa-PTP513Olh5SVapqBJ1fIF-UQXb-YRSgs8iXnajfPTjxW5xvHYL_WJIU2IaxxOWTsh9Q1ov5cN7_vyrOtr67Y5VllLQDLcnFzfBEXUaF7hEyuija2RNQymTyUcV0TMsWn-w3Nu_eHdTX9w9VqR03eKgacw6D_L9gicqUhQi00Md8Kk5kRikqo_IDjnu1SOx3Z2jEM968lambNl44ayvT17ma-nXC_nIgLvXKI"/>
+<span class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-primary rounded-full animate-ping"></span>
+<span class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-primary-container rounded-full"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Eng. Carlos Prado</span>
+<span class="font-label-sm text-label-sm text-tertiary bg-surface-container-high px-1.5 py-0.2 rounded">CREA Senior</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Plantão de Cálculo: "Dúvida no traço ou escoramento?"</p>
+</div>
+</div>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-3 py-2.5 rounded-lg flex items-center gap-1 shrink-0 shadow-md active:scale-95 transition-transform" onclick="triggerCallAlert()">
+<span class="material-symbols-outlined text-[18px]">phone_in_talk</span>
+<span>Chamar</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+  let currentFck = 25;
+  let currentElem = 'pilar';
+
+  function switchCalc(panelId) {
+    document.querySelectorAll('.calc-panel').forEach(panel => panel.classList.add('hidden'));
+    const target = document.getElementById('panel-' + panelId);
+    if (target) target.classList.remove('hidden');
+
+    document.querySelectorAll('.calc-tab').forEach(tab => {
+      tab.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+      tab.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+    });
+
+    const activeTab = document.getElementById('tab-' + panelId);
+    if (activeTab) {
+      activeTab.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+      activeTab.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+    }
+  }
+
+  function setFck(val, btn) {
+    currentFck = val;
+    document.querySelectorAll('.fck-btn').forEach(b => {
+      b.classList.remove('bg-primary-container', 'shadow-sm');
+      b.classList.add('bg-surface-container-high');
+    });
+    btn.classList.add('bg-primary-container', 'shadow-sm');
+    btn.classList.remove('bg-surface-container-high');
+    calcConcreto();
+  }
+
+  function calcConcreto() {
+    const vol = parseFloat(document.getElementById('vol-slider').value);
+    const hasLoss = document.getElementById('loss-margin').checked;
+    const factor = hasLoss ? 1.10 : 1.0;
+    const effectiveVol = vol * factor;
+
+    document.getElementById('vol-display').innerText = vol.toFixed(1) + ' m³';
+
+    // Ratios based on fck
+    let cimentoPorM3, areiaPorM3, britaPorM3, tracoText;
+    if (currentFck === 20) {
+      cimentoPorM3 = 6.5; // sacos
+      areiaPorM3 = 0.72; // m³
+      britaPorM3 = 0.85; // m³
+      tracoText = "Traço 1 : 2.5 : 3.5";
+    } else if (currentFck === 25) {
+      cimentoPorM3 = 7.5; // sacos
+      areiaPorM3 = 0.65;
+      britaPorM3 = 0.82;
+      tracoText = "Traço 1 : 2.0 : 2.5";
+    } else { // 30 MPa
+      cimentoPorM3 = 8.5; // sacos
+      areiaPorM3 = 0.60;
+      britaPorM3 = 0.80;
+      tracoText = "Traço 1 : 1.5 : 2.2";
+    }
+
+    const totalCimento = Math.ceil(cimentoPorM3 * effectiveVol);
+    const totalAreia = (areiaPorM3 * effectiveVol).toFixed(1);
+    const totalBrita = (britaPorM3 * effectiveVol).toFixed(1);
+    const totalAgua = Math.round(totalCimento * 26); // ~26L de água por saco de cimento
+
+    document.getElementById('traço-tag').innerText = tracoText;
+    document.getElementById('res-cimento').innerText = totalCimento;
+    document.getElementById('res-areia').innerText = totalAreia;
+    document.getElementById('res-brita').innerText = totalBrita;
+    document.getElementById('res-agua').innerText = totalAgua;
+  }
+
+  function setElemType(type, btn) {
+    currentElem = type;
+    document.querySelectorAll('.elem-btn').forEach(b => {
+      b.classList.remove('bg-primary-container');
+      b.classList.add('bg-surface-container-high');
+    });
+    btn.classList.add('bg-primary-container');
+    btn.classList.remove('bg-surface-container-high');
+    calcSteel();
+  }
+
+  function calcSteel() {
+    const vol = parseFloat(document.getElementById('steel-vol-slider').value);
+    document.getElementById('steel-vol-display').innerText = vol.toFixed(1) + ' m³';
+
+    let taxaMedia = 100;
+    if (currentElem === 'pilar') taxaMedia = 110;
+    if (currentElem === 'viga') taxaMedia = 90;
+    if (currentElem === 'laje') taxaMedia = 60;
+    if (currentElem === 'sapata') taxaMedia = 50;
+
+    const totalKg = Math.round(vol * taxaMedia);
+    const ca50Kg = Math.round(totalKg * 0.86);
+    const ca60Kg = Math.round(totalKg * 0.14);
+
+    document.getElementById('res-total-steel').innerText = totalKg + ' kg';
+    document.getElementById('res-ca50').innerText = ca50Kg + ' kg';
+    document.getElementById('res-ca60').innerText = ca60Kg + ' kg';
+
+    const barras10mm = Math.ceil(ca50Kg / 7.4); // 1 barra 10mm 12m pesa ~7.4kg
+    const barras5mm = Math.ceil(ca60Kg / 1.85); // 1 barra 5mm 12m pesa ~1.85kg
+    document.getElementById('res-barras').innerText = '~ ' + barras10mm + ' barras (12m - 10mm)';
+  }
+
+  function calcDesforma() {
+    const temp = parseInt(document.getElementById('temp-slider').value);
+    const cimento = document.getElementById('cement-type').value;
+    document.getElementById('temp-display').innerText = temp + '°C';
+
+    let lateral = 3;
+    let parcial = 14;
+    let total = 28;
+
+    if (cimento === 'ari') {
+      lateral = 2;
+      parcial = 7;
+      total = 14;
+    }
+
+    if (temp < 15) {
+      lateral += 1;
+      parcial += 3;
+      total += 4;
+    }
+
+    document.getElementById('prazo-laterais').innerText = lateral + ' dias';
+    document.getElementById('prazo-inferiores-parcial').innerText = parcial + ' dias';
+    document.getElementById('prazo-total').innerText = total + ' dias';
+  }
+
+  function convertMpa(val) {
+    const v = parseFloat(val) || 0;
+    document.getElementById('output-kgf').innerText = (v * 10.197).toFixed(1);
+  }
+
+  function convertKn(val) {
+    const v = parseFloat(val) || 0;
+    document.getElementById('output-tf').innerText = (v * 0.10197).toFixed(2);
+  }
+
+  function convertEmpolamento(val) {
+    const v = parseFloat(val) || 0;
+    document.getElementById('output-solto').innerText = (v * 1.30).toFixed(1);
+  }
+
+  function triggerCallAlert() {
+    alert("Conectando ao rádio do Eng. Carlos Prado via WebRTC da obra...");
+  }
+
+  // Executa cálculos padrão na inicialização
+  calcConcreto();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_-4px_20px_rgba(0,0,0,0.5)]" data-active-classes="text-primary-container bg-surface-container"><div class="flex items-center justify-around h-16 px-space-xs"><a class="flex flex-col items-center justify-center min-w-[64px] min-h-[44px] py-1 px-2 rounded-lg text-on-surface-variant transition-colors hover:text-on-surface" data-path="inicio-e-login" href="#"><span class="material-symbols-outlined text-[22px]">dashboard</span><span class="font-label-sm text-label-sm mt-0.5 tracking-tight">Início</span></a><a class="flex flex-col items-center justify-center min-w-[64px] min-h-[44px] py-1 px-2 rounded-lg text-on-surface-variant transition-colors hover:text-on-surface" data-path="mentoria-e-guias" href="#"><span class="material-symbols-outlined text-[22px]">engineering</span><span class="font-label-sm text-label-sm mt-0.5 tracking-tight">Mentoria</span></a><a class="flex flex-col items-center justify-center min-w-[64px] min-h-[44px] py-1 px-2 rounded-lg text-on-surface-variant transition-colors hover:text-on-surface" data-path="diario-de-obra" href="#"><span class="material-symbols-outlined text-[22px]">edit_calendar</span><span class="font-label-sm text-label-sm mt-0.5 tracking-tight">Diário</span></a><a aria-current="page" class="flex flex-col items-center justify-center min-w-[64px] min-h-[44px] py-1 px-2 rounded-lg transition-colors text-primary-container bg-surface-container" data-path="calculadoras" href="#"><span class="material-symbols-outlined text-[22px]">calculate</span><span class="font-label-sm text-label-sm mt-0.5 tracking-tight">Cálculo</span></a></div></nav></body></html>

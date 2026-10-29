@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal do Engenheiro Civil | Guia Definitivo de Carreira</title>
+  <meta name="description" content="Plataforma interativa para engenheiros civis recém-formados: Carreira, Remuneração, Patologias Construtivas, Modelos de Atuação (Autônomo, PJ, CNPJ, CLT), Cursos e Acesso CREA.">
+  
+  <!-- Fontes Google Modernas (Outfit + JetBrains Mono) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Ícones Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  
+  <!-- Estilos Personalizados de Alto Padrão -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-engineering text-light">
+
+  <!-- Canvas Interativo de Fundo: Símbolos da Engenharia em Movimento -->
+  <canvas id="engineeringSymbolsCanvas" class="background-canvas"></canvas>
+
+  <!-- Barra de Navegação Técnica -->
+  <header class="top-nav">
+    <div class="nav-container">
+      <div class="brand-logo">
+        <div class="logo-symbol">
+          <i class="ph-bold ph-compass"></i>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">ENG<span class="accent-text">.START</span></span>
+          <span class="brand-sub">PORTAL DA ENGENHARIA CIVIL</span>
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#carreira" class="nav-item active"><i class="ph ph-trend-up"></i> Carreira & Mercado</a>
+        <a href="#modelos" class="nav-item"><i class="ph ph-briefcase"></i> Atuação & Regiões</a>
+        <a href="#patologias" class="nav-item"><i class="ph ph-shield-warning"></i> Patologias & Inovação</a>
+        <a href="#stitch-hub" class="nav-item"><i class="ph ph-squares-four"></i> Módulos Stitch</a>
+        <a href="#cursos" class="nav-item"><i class="ph ph-graduation-cap"></i> Cursos Gratuitos</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Botão Inicial de Acesso CREA -->
+        <button id="btnOpenAuth" class="btn-crea-auth">
+          <span class="pulse-indicator"></span>
+          <i class="ph-bold ph-identification-badge"></i>
+          <span>Acesso CREA</span>
+        </button>
+
+        <!-- Área exibida quando o Engenheiro está autenticado -->
+        <div id="userProfileArea" class="user-profile-bar" style="display: none;">
+          <div class="user-info-pill" id="userDropdownTrigger" title="Clique para detalhes do perfil">
+            <div class="user-avatar-badge">
+              <i class="ph-bold ph-hard-hat"></i>
+            </div>
+            <div class="user-names">
+              <span id="navUserName" class="user-full-name">Eng. Nome Sobrenome</span>
+              <span id="navUserCrea" class="user-crea-badge">CREA 123456/UF</span>
+            </div>
+            <button id="btnLogout" class="btn-logout-small" title="Encerrar Sessão">
+              <i class="ph-bold ph-sign-out"></i>
+            </button>
+          </div>
+
+          <!-- Botão do Chat Interativo dos Engenheiros -->
+          <button id="btnToggleChat" class="btn-eng-chat" title="Comunidade de Engenheiros em Tempo Real">
+            <i class="ph-fill ph-chats-circle"></i>
+            <span class="chat-btn-text">Chat Técnico</span>
+            <span class="chat-online-badge">3</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section Técnico -->
+  <section class="hero-section">
+    <div class="hero-grid-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="ph-fill ph-hard-hat"></i> GUIA PRÁTICO PARA RECÉM-FORMADOS
+      </div>
+      <h1 class="hero-title">
+        Da Colação de Grau à <br><span class="highlight-text">Consolidação na Engenharia</span>
+      </h1>
+      <p class="hero-desc">
+        Tudo o que a faculdade não ensinou: estratégias de faturamento, abertura de empresas, patologias práticas de canteiro de obras e direcionamento regional no Brasil.
+      </p>
+
+      <div class="hero-metrics-bar">
+        <div class="metric-block">
+          <span class="metric-value">R$ 10.300+</span>
+          <span class="metric-label">Piso Salarial CREA/Mútua (8.5 SM)</span>
+        </div>
+        <div class="metric-divider"></div>
+        <div class="metric-block">
+          <span class="metric-value">4 Modelos</span>
+          <span class="metric-label">Autônomo, PJ, CNPJ & CLT</span>
+        </div>
+        <div class="metric-divider"></div>
+        <div class="metric-block">
+          <span class="metric-value">5 Regiões</span>
+          <span class="metric-label">Mapeamento Econômico Brasileiro</span>
+        </div>
+        <div class="metric-divider"></div>
+        <div class="metric-block">
+          <span class="metric-value">100% Free</span>
+          <span class="metric-label">Trilha de Capacitação Técnica</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 1: Os 4 Pilares da Carreira -->
+  <section id="carreira" class="section-container">
+    <div class="section-header">
+      <div class="section-tag">ETAPAS DA TRAJETÓRIA</div>
+      <h2 class="section-title">Evolução Profissional em 4 Dimensões</h2>
+      <p class="section-subtitle">Entenda a realidade crua, as faixas salariais reais e as alavancas de autoridade.</p>
+    </div>
+
+    <!-- Abas Interativas dos 4 Pilares -->
+    <div class="pillars-wrapper">
+      <div class="pillars-nav">
+        <button class="pillar-tab-btn active" data-target="tab-carreira">
+          <i class="ph-bold ph-compass-tool"></i>
+          <div>
+            <strong>1. Carreira Inicial</strong>
+            <span>Especializações e primeiros passos</span>
+          </div>
+        </button>
+        <button class="pillar-tab-btn" data-target="tab-remuneracao">
+          <i class="ph-bold ph-currency-circle-dollar"></i>
+          <div>
+            <strong>2. Remuneração Real</strong>
+            <span>Piso CREA vs Mercado vs Honorários</span>
+          </div>
+        </button>
+        <button class="pillar-tab-btn" data-target="tab-dificuldades">
+          <i class="ph-bold ph-warning-octagon"></i>
+          <div>
+            <strong>3. Principais Dificuldades</strong>
+            <span>Desafios reais e como superá-los</span>
+          </div>
+        </button>
+        <button class="pillar-tab-btn" data-target="tab-consolidacao">
+          <i class="ph-bold ph-certificate"></i>
+          <div>
+            <strong>4. Consolidação</strong>
+            <span>Escala, ARTs de acervo e autoridade</span>
+          </div>
+        </button>
+      </div>
+
+      <!-- Conteúdo dos Pilares -->
+      <div class="pillars-content">
+        <!-- Pilar 1 -->
+        <div id="tab-carreira" class="pillar-panel active">
+          <div class="panel-header">
+            <h3><i class="ph-fill ph-compass-tool"></i> Estruturação da Carreira</h3>
+            <span class="badge-status">Fase: 0 a 2 anos</span>
+          </div>
+          <p class="panel-lead">O diploma confere a atribuição legal (Lei 5.194/66), mas a contratação depende da capacidade de resolver problemas práticos e dominar ferramentas contemporâneas.</p>
+          
+          <div class="cards-duo">
+            <div class="info-card">
+              <h4><i class="ph-bold ph-path"></i> Rotas de Entrada Imediata</h4>
+              <ul>
+                <li><strong>Projetista Especialista (BIM):</strong> Modelagem Revit/Archicad, compatibilização Navisworks e cálculo estrutural (TQS/Eberick).</li>
+                <li><strong>Engenheiro de Campo / Residente Assistente:</strong> Gestão diária de cronograma físico-financeiro, diário de obras e controle tecnológico do concreto.</li>
+                <li><strong>Perito Judicial & Avaliador de Imóveis:</strong> Nomeações em varas cíveis para laudos cautelares de vizinhança e vistorias de entrega de obra.</li>
+                <li><strong>Orçamentista & Planejador:</strong> Curva ABC, composições SINAPI/SICRO e orçamentação executiva assertiva.</li>
+              </ul>
+            </div>
+            <div class="info-card accent-card">
+              <h4><i class="ph-bold ph-check-circle"></i> O Checklist do 1º Mês</h4>
+              <div class="step-checklist">
+                <label><input type="checkbox" checked disabled> Registro definitivo no CREA do seu estado e visto em caso de obras fora</label>
+                <label><input type="checkbox" checked disabled> Inscrição na Mútua (Caixa de Assistência dos Profissionais do Crea)</label>
+                <label><input type="checkbox"> Certificado Digital e-CPF (A1 ou token) para assinatura de ARTs eletrônicas</label>
+                <label><input type="checkbox"> Cadastro como Perito no Tribunal de Justiça do seu Estado (TJ)</label>
+                <label><input type="checkbox"> Portfólio técnico estruturado no LinkedIn e rede de fornecedores locais</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pilar 2 -->
+        <div id="tab-remuneracao" class="pillar-panel">
+          <div class="panel-header">
+            <h3><i class="ph-fill ph-currency-circle-dollar"></i> Remuneração: Piso Legal vs Prática</h3>
+            <span class="badge-status">Tabela Atualizada 2026</span>
+          </div>
+          <p class="panel-lead">Conheça a diferença entre a Lei Federal nº 4.950-A/66 e a contratação como "Analista de Engenharia".</p>
+          
+          <div class="salary-grid">
+            <div class="salary-card">
+              <span class="sal-level">Piso Legal (CREA CLT)</span>
+              <div class="sal-price">R$ 10.300 <small>/mês</small></div>
+              <p>Jornada de 6h/dia = 6 Salários Mínimos. Jornada de 8h/dia = 8.5 Salários Mínimos. Obrigatório em contratos sob o cargo "Engenheiro Civil".</p>
+            </div>
+            <div class="salary-card highlight">
+              <span class="sal-level">Mercado Real (Recém-Formado CLT)</span>
+              <div class="sal-price">R$ 4.500 - R$ 7.200 <small>/mês</small></div>
+              <p>Muitas empresas contratam inicialmente sob a CBO de "Analista Técnico" ou "Coordenador de Projetos" para burlar a exigência do piso salarial pleno.</p>
+            </div>
+            <div class="salary-card">
+              <span class="sal-level">Autônomo / Empreiteiro PJ</span>
+              <div class="sal-price">R$ 8.000 - R$ 25.000+ <small>/mês</small></div>
+              <p>Faturamento variável dependente do volume de laudos, projetos complementares e taxa de administração de obras (geralmente de 12% a 18% do CUB).</p>
+            </div>
+          </div>
+
+          <!-- Calculadora Simples de Honorários de Obra -->
+          <div class="interactive-calc-box">
+            <h4><i class="ph-bold ph-calculator"></i> Simulador Rápido de Honorários de Gestão de Obra</h4>
+            <div class="calc-row">
+              <div class="calc-input-group">
+                <label>Área da Construção (m²):</label>
+                <input type="number" id="calcArea" value="180" min="20" max="5000">
+              </div>
+              <div class="calc-input-group">
+                <label>Padrão Construtivo (CUB médio R$/m²):</label>
+                <select id="calcCub">
+                  <option value="2200">Baixo Padrão (R$ 2.200/m²)</option>
+                  <option value="3100" selected>Médio Padrão (R$ 3.100/m²)</option>
+                  <option value="4600">Alto Padrão (R$ 4.600/m²)</option>
+                </select>
+              </div>
+              <div class="calc-input-group">
+                <label>Taxa de Administração (%):</label>
+                <input type="number" id="calcTaxa" value="14" min="8" max="25">
+              </div>
+              <div class="calc-result-box">
+                <span class="res-title">Honorário Estimado:</span>
+                <span id="calcResultado" class="res-value">R$ 78.120,00</span>
+                <span class="res-sub">Dividido pelo prazo de execução da obra</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pilar 3 -->
+        <div id="tab-dificuldades" class="pillar-panel">
+          <div class="panel-header">
+            <h3><i class="ph-fill ph-warning-octagon"></i> As 4 Grandes Dificuldades do Recém-Formado</h3>
+            <span class="badge-status">Diagnóstico Prático</span>
+          </div>
+          <div class="pitfalls-grid">
+            <div class="pitfall-item">
+              <div class="pitfall-icon"><i class="ph-bold ph-x-circle"></i></div>
+              <div class="pitfall-text">
+                <strong>1. O Paradoxo da Experiência Prévia</strong>
+                <p>Vagas pedem 2 a 3 anos de experiência em gestão de canteiro. <em>Solução:</em> Monte portfólio prático de projetos executivos 3D/BIM e realize laudos periciais de vizinhança ou reformas pela NBR 16.280.</p>
+              </div>
+            </div>
+            <div class="pitfall-item">
+              <div class="pitfall-icon"><i class="ph-bold ph-users-three"></i></div>
+              <div class="pitfall-text">
+                <strong>2. Gestão de Equipe e Mão de Obra de Campo</strong>
+                <p>A faculdade não ensina como liderar pedreiros, mestres e armadores experientes. <em>Solução:</em> Postura humilde de escuta técnica, domínio absoluto do projeto e clareza nas metas de produção diárias.</p>
+              </div>
+            </div>
+            <div class="pitfall-item">
+              <div class="pitfall-icon"><i class="ph-bold ph-scales"></i></div>
+              <div class="pitfall-text">
+                <strong>3. Medo da Responsabilidade Civil e Criminal</strong>
+                <p>Assinar ART gera responsabilidade solidária por vícios ocultos e segurança do trabalho. <em>Solução:</em> Seguro de Responsabilidade Civil Profissional (RC) e registro rigoroso em Diário de Obra fotográfico.</p>
+              </div>
+            </div>
+            <div class="pitfall-item">
+              <div class="pitfall-icon"><i class="ph-bold ph-receipt"></i></div>
+              <div class="pitfall-text">
+                <strong>4. Gestão Financeira e Precificação Errada</strong>
+                <p>Cobrar barato para "pegar cliente" e pagar para trabalhar. <em>Solução:</em> Utilizar tabelas de honorários de referência do IBAPE e IBDT, calculando custo de hora técnica + BDI.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pilar 4 -->
+        <div id="tab-consolidacao" class="pillar-panel">
+          <div class="panel-header">
+            <h3><i class="ph-fill ph-certificate"></i> Consolidação e Acervo Técnico (CAT)</h3>
+            <span class="badge-status">Longo Prazo</span>
+          </div>
+          <p class="panel-lead">Na engenharia civil, o seu patrimônio mais valioso não são seus bens físicos, mas o seu <strong>Acervo Técnico registrado no CREA</strong>.</p>
+          <div class="consolidation-flow">
+            <div class="flow-card">
+              <div class="flow-num">01</div>
+              <h4>Emissão Correta da ART</h4>
+              <p>Cadastre sempre a Anotação de Responsabilidade Técnica com a discriminação exata das atribuições (projeto, laudo ou execução) e metragem quadrada.</p>
+            </div>
+            <div class="flow-arrow"><i class="ph-bold ph-arrow-right"></i></div>
+            <div class="flow-card">
+              <div class="flow-num">02</div>
+              <h4>Atestado de Capacidade</h4>
+              <p>Ao finalizar a obra ou serviço, colha a assinatura do contratante com firma reconhecida no Atestado de Conclusão de Serviços Técnicos.</p>
+            </div>
+            <div class="flow-arrow"><i class="ph-bold ph-arrow-right"></i></div>
+            <div class="flow-card">
+              <div class="flow-num">03</div>
+              <h4>Certidão de Acervo Técnico (CAT)</h4>
+              <p>Solicite a emissão da CAT no sistema do CREA. Esse documento permite participar de licitações milionárias e comprovar senioridade.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 2: Formas de Atuação e Regiões do Brasil -->
+  <section id="modelos" class="section-container bg-surface-contrast">
+    <div class="section-header">
+      <div class="section-tag">ESTRUTURAÇÃO SOCIETÁRIA & GEOGRÁFICA</div>
+      <h2 class="section-title">Modelos de Atuação: Autônomo, PJ, CNPJ e CLT</h2>
+      <p class="section-subtitle">Descubra qual modelo tributário adotar e onde no Brasil as oportunidades estão explodindo.</p>
+    </div>
+
+    <!-- Seletor de Modelo de Atuação -->
+    <div class="model-buttons-bar">
+      <button class="model-btn active" data-model="autonomo">
+        <i class="ph-bold ph-user"></i>
+        <span>1. Profissional Autônomo</span>
+      </button>
+      <button class="model-btn" data-model="pj">
+        <i class="ph-bold ph-buildings"></i>
+        <span>2. Pejotização (PJ Unipessoal)</span>
+      </button>
+      <button class="model-btn" data-model="cnpj">
+        <i class="ph-bold ph-factory"></i>
+        <span>3. Construtora / CNPJ Completo</span>
+      </button>
+      <button class="model-btn" data-model="clt">
+        <i class="ph-bold ph-identification-card"></i>
+        <span>4. Carteira Assinada (CLT)</span>
+      </button>
+    </div>
+
+    <!-- Detalhes do Modelo Selecionado -->
+    <div class="model-display-area" id="modelDisplay">
+      <!-- O conteúdo é atualizado via JS dinamicamente para alta interatividade -->
+    </div>
+
+    <!-- Mapeamento Geográfico do Brasil -->
+    <div class="regional-analysis-box">
+      <div class="regional-header">
+        <div class="title-with-icon">
+          <i class="ph-fill ph-map-pin-line"></i>
+          <div>
+            <h3>Raio-X Regional das Oportunidades no Brasil</h3>
+            <span>Selecione a região para ver nichos de maior rentabilidade e expansão</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="regions-interactive-grid">
+        <div class="region-card" data-region="centro-oeste">
+          <div class="region-badge">Agro & Infra</div>
+          <h4>Centro-Oeste</h4>
+          <span class="region-states">MT, MS, GO, DF</span>
+          <p><strong>Crescimento explosivo:</strong> Armazenagem, silos, pisos industriais pesados, rodovias de escoamento e condomínios de luxo no entorno das capitais do agronegócio.</p>
+          <div class="region-tags">
+            <span>Silos Graneleiros</span>
+            <span>Infraestrutura</span>
+            <span>Alta Demanda</span>
+          </div>
+        </div>
+
+        <div class="region-card" data-region="sudeste">
+          <div class="region-badge">Mercado Maduro</div>
+          <h4>Sudeste</h4>
+          <span class="region-states">SP, RJ, MG, ES</span>
+          <p><strong>Reforma e Alta Densidade:</strong> Retrofit predial, patologia e perícias de edifícios antigos, incorporação vertical em grande escala e coordenação BIM avançada.</p>
+          <div class="region-tags">
+            <span>Retrofit Predial</span>
+            <span>Perícias & Laudos</span>
+            <span>BIM Management</span>
+          </div>
+        </div>
+
+        <div class="region-card" data-region="sul">
+          <div class="region-badge">Inovação & Cidades</div>
+          <h4>Sul</h4>
+          <span class="region-states">PR, SC, RS</span>
+          <p><strong>Tecnologia & Habitação:</strong> Construção a seco (Steel Frame e Wood Frame), obras portuárias, saneamento e verticalização no litoral catarinense.</p>
+          <div class="region-tags">
+            <span>Steel Frame</span>
+            <span>Obras Portuárias</span>
+            <span>Litoral Premium</span>
+          </div>
+        </div>
+
+        <div class="region-card" data-region="nordeste">
+          <div class="region-badge">Energia & Turismo</div>
+          <h4>Nordeste</h4>
+          <span class="region-states">BA, CE, PE, RN, PB, AL, SE, PI, MA</span>
+          <p><strong>Expansão de Obras Verdes:</strong> Parques eólicos e solares, hotelaria litorânea de alto luxo, habitação social subsidiada e obras hídricas/infraestrutura.</p>
+          <div class="region-tags">
+            <span>Parques Eólicos/Solares</span>
+            <span>Resorts & Loteamentos</span>
+            <span>Minha Casa Minha Vida</span>
+          </div>
+        </div>
+
+        <div class="region-card" data-region="norte">
+          <div class="region-badge">Fronteira & Logística</div>
+          <h4>Norte</h4>
+          <span class="region-states">AM, PA, RO, TO, AC, AP, RR</span>
+          <p><strong>Desafios Geotécnicos:</strong> Obras de contenção, fundações em solos orgânicos, logística fluvial/portuária e expansão urbana vinculada à mineração e agrologística.</p>
+          <div class="region-tags">
+            <span>Geotecnia Fluvial</span>
+            <span>Logística & Mineração</span>
+            <span>Saneamento Básico</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 3: Patologias Construtivas & Novas Tecnologias -->
+  <section id="patologias" class="section-container">
+    <div class="section-header">
+      <div class="section-tag">CONHECIMENTO TÉCNICO APLICADO</div>
+      <h2 class="section-title">Patologias por Método Construtivo & Inovação</h2>
+      <p class="section-subtitle">Diagnóstico preciso de falhas comuns em canteiro e os materiais de ponta para resolvê-las.</p>
+    </div>
+
+    <!-- Filtro de Métodos Construtivos -->
+    <div class="methods-filter-bar">
+      <button class="filter-chip active" data-filter="all">Todos os Métodos</button>
+      <button class="filter-chip" data-filter="concreto">Concreto Armado Convencional</button>
+      <button class="filter-chip" data-filter="alvenaria">Alvenaria Estrutural</button>
+      <button class="filter-chip" data-filter="steelframe">Light Steel Frame (A Seco)</button>
+      <button class="filter-chip" data-filter="impermeabilizacao">Impermeabilização & Coberturas</button>
+    </div>
+
+    <!-- Grid de Patologias e Soluções -->
+    <div class="pathology-grid" id="pathologyGrid">
+      
+      <!-- Card 1 -->
+      <div class="pathology-card" data-category="concreto">
+        <div class="path-badge">Concreto Armado</div>
+        <div class="path-icon-visual"><i class="ph-bold ph-line-segments"></i></div>
+        <h3>Fissuração Térmica e de Retração Plástica</h3>
+        <div class="path-problem">
+          <strong>Causa:</strong> Perda rápida de água da superfície do concreto fresco devido a vento e sol forte sem cura imediata (retração hidráulica nas primeiras horas).
+        </div>
+        <div class="path-solution">
+          <strong>Solução Recomendada:</strong> Aplicação de cura química imediata por aspersão ou mantas de geotêxtil úmidas por no mínimo 7 dias. Adição de microfibras de polipropileno no traço.
+        </div>
+        <div class="path-tech">
+          <i class="ph-fill ph-cpu"></i> <strong>Tecnologia 2026:</strong> Concreto auto-cicatrizante com bactérias mineralizadoras (Bacillus pseudofirmus) ou aditivos cristalizantes permanentes.
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="pathology-card" data-category="concreto">
+        <div class="path-badge">Concreto Armado</div>
+        <div class="path-icon-visual"><i class="ph-bold ph-shield-slash"></i></div>
+        <h3>Corrosão de Armadura por Carbonatação / Cloretos</h3>
+        <div class="path-problem">
+          <strong>Causa:</strong> Cobrimento insuficiente de armadura (falha de espaçadores) permitindo avanço da frente de carbonatação de CO2 e despassivação do aço.
+        </div>
+        <div class="path-solution">
+          <strong>Solução Recomendada:</strong> Remoção mecânica do concreto deteriorado até além da barra, lixamento do aço, pintura com primer inibidor de corrosão e recomposição com graute polimérico tixotrópico.
+        </div>
+        <div class="path-tech">
+          <i class="ph-fill ph-cpu"></i> <strong>Tecnologia 2026:</strong> Inibidores de corrosão migratórios (MCI) e proteção catódica galvânica por ânodos de sacrifício compactos.
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="pathology-card" data-category="alvenaria">
+        <div class="path-badge">Alvenaria Estrutural</div>
+        <div class="path-icon-visual"><i class="ph-bold ph-warning"></i></div>
+        <h3>Fissuras Diagonais a 45º em Vãos de Portas/Janelas</h3>
+        <div class="path-problem">
+          <strong>Causa:</strong> Ausência ou dimensionamento inadequado de vergas e contravergas nos cantos das aberturas, concentrando tensões de cisalhamento.
+        </div>
+        <div class="path-solution">
+          <strong>Solução Recomendada:</strong> Instalação obrigatória de blocos canaleta grauteados com armação transversal ultrapassando pelo menos 30 a 40cm de cada lado da abertura.
+        </div>
+        <div class="path-tech">
+          <i class="ph-fill ph-cpu"></i> <strong>Tecnologia 2026:</strong> Telas sintéticas de poliéster de altíssima tenacidade aplicadas na camada de argamassa como reforço estrutural flexível.
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="pathology-card" data-category="steelframe">
+        <div class="path-badge">Steel Frame</div>
+        <div class="path-icon-visual"><i class="ph-bold ph-drop"></i></div>
+        <h3>Pontes Térmicas e Condensação Intersticial</h3>
+        <div class="path-problem">
+          <strong>Causa:</strong> Descontinuidade do isolamento térmico nos perfis de aço galvanizado, provocando condensação interna invisível e mofo na placa de gesso.
+        </div>
+        <div class="path-solution">
+          <strong>Solução Recomendada:</strong> Uso contínuo de membranas hidrófugas (barreiras de vapor/respiráveis) no perímetro externo e isolamento contínuo em EPS ou lã de rocha de alta densidade sem frestas.
+        </div>
+        <div class="path-tech">
+          <i class="ph-fill ph-cpu"></i> <strong>Tecnologia 2026:</strong> Aerogel em fitas isolantes estruturais de alta resistência à compressão e espessura milimétrica.
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="pathology-card" data-category="impermeabilizacao">
+        <div class="path-badge">Impermeabilização</div>
+        <div class="path-icon-visual"><i class="ph-bold ph-waves"></i></div>
+        <h3>Infiltração Ascendente por Capilaridade em Rodapés</h3>
+        <div class="path-problem">
+          <strong>Causa:</strong> Falha ou inexistência de impermeabilização nas vigas baldrame e primeiras fiadas de tijolos, permitindo que a água do solo suba pelos poros.
+        </div>
+        <div class="path-solution">
+          <strong>Solução Recomendada:</strong> Cristalização química injetada em furos inclinados a 45º na base da parede ou injeção de gel de silicato que bloqueia os poros capilares.
+        </div>
+        <div class="path-tech">
+          <i class="ph-fill ph-cpu"></i> <strong>Tecnologia 2026:</strong> Membranas de poliureia pura de cura ultrarrápida (15 segundos) aplicadas por spray quente, sem emendas e com 400% de elasticidade.
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="pathology-card" data-category="alvenaria">
+        <div class="path-badge">Alvenaria / Fachada</div>
+        <div class="path-icon-visual"><i class="ph-bold ph-wall"></i></div>
+        <h3>Descolamento de Revestimento Cerâmico de Fachada</h3>
+        <div class="path-problem">
+          <strong>Causa:</strong> Não cumprimento das juntas de movimentação e dessolidarização recomendadas na NBR 13.755, associado ao uso de argamassa colante inadequada (ex: AC-I em vez de AC-III).
+        </div>
+        <div class="path-solution">
+          <strong>Solução Recomendada:</strong> Projeto executivo de juntas a cada 3 a 5 metros horizontais e a cada pavimento, com selante elastomérico à base de poliuretano.
+        </div>
+        <div class="path-tech">
+          <i class="ph-fill ph-cpu"></i> <strong>Tecnologia 2026:</strong> Fachadas ventiladas autoportantes com fixação oculta mecânica e sensores IoT de deformação por fibra óptica embutida.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bloco de Inovação e Tecnologias Emergentes -->
+    <div class="tech-radar-box">
+      <div class="radar-header">
+        <i class="ph-bold ph-atom"></i>
+        <div>
+          <h3>Radar de Tecnologias Que Estão Transformando a Construção Civil</h3>
+          <p>As competências que garantem que você não seja substituído e cobre 3x mais por seus serviços.</p>
+        </div>
+      </div>
+      <div class="radar-cards-list">
+        <div class="radar-item">
+          <div class="item-tag">Metodologia</div>
+          <h4>BIM Mandatário (Decreto Federal nº 10.306)</h4>
+          <p>Obras públicas federais exigem BIM desde 2021. Dominar OpenBIM (IFC), extração de quantitativos e interoperabilidade é pré-requisito indispensável.</p>
+        </div>
+        <div class="radar-item">
+          <div class="item-tag">Canteiro Inteligente</div>
+          <h4>Drones & Escaneamento LiDAR</h4>
+          <p>Levantamentos planialtimétricos, cálculo de volume de terraplenagem e nuvens de pontos para confronto diário entre o projeto executivo e a obra real.</p>
+        </div>
+        <div class="radar-item">
+          <div class="item-tag">Industrialização</div>
+          <h4>Construção Modular Off-Site</h4>
+          <p>Módulos de banheiros prontos e casas montadas em fábrica com tolerâncias milimétricas, reduzindo o tempo de canteiro em até 60% e zerando entulho.</p>
+        </div>
+      </div>
+    </div>
+  <!-- SEÇÃO INTERATIVA: MÓDULOS DE APLICAÇÃO GOOGLE STITCH -->
+  <section id="stitch-hub" class="section-container stitch-section">
+    <div class="section-header">
+      <div class="section-tag"><i class="ph-bold ph-lightning"></i> STITCH MCP INTEGRATION</div>
+      <h2 class="section-title">Módulos Práticos de Canteiro & Escritório</h2>
+      <p class="section-subtitle">Telas interativas e ferramentas de alta precisão desenvolvidas no ecossistema do Google Stitch para o dia a dia do engenheiro civil.</p>
+    </div>
+
+    <!-- Grade de Módulos do Stitch -->
+    <div class="stitch-modules-grid">
+      
+      <!-- Módulo 1: RDO -->
+      <div class="stitch-card">
+        <div class="stitch-card-top">
+          <span class="stitch-pill"><i class="ph-bold ph-clipboard-text"></i> Canteiro</span>
+          <span class="stitch-date">RDO Digital</span>
+        </div>
+        <div class="stitch-icon-box">
+          <i class="ph-fill ph-notebook"></i>
+        </div>
+        <h3>Diário de Obra Digital (RDO)</h3>
+        <p>Preenchimento técnico de condições climáticas, contingente de mão de obra direta/indireta, equipamentos ativos e ocorrências para respaldo jurídico e fiscal.</p>
+        <div class="stitch-features">
+          <span><i class="ph-bold ph-check"></i> Registro Climático</span>
+          <span><i class="ph-bold ph-check"></i> Fotos & Ocorrências</span>
+          <span><i class="ph-bold ph-check"></i> ART Integrada</span>
+        </div>
+        <div class="stitch-actions">
+          <button class="btn-stitch-preview" onclick="openStitchViewer('stitch_screens/rdo_diario_obra.html', 'Diário de Obra Digital (RDO)')">
+            <i class="ph-bold ph-eye"></i> Visualizar Tela
+          </button>
+          <a href="stitch_screens/rdo_diario_obra.html" target="_blank" class="btn-stitch-external" title="Abrir em Nova Aba">
+            <i class="ph-bold ph-arrow-square-out"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Módulo 2: Calculadoras Técnicas -->
+      <div class="stitch-card featured-stitch">
+        <div class="stitch-card-top">
+          <span class="stitch-pill highlight"><i class="ph-bold ph-calculator"></i> Alta Precisão</span>
+          <span class="stitch-date">Dimensionamento</span>
+        </div>
+        <div class="stitch-icon-box cyan">
+          <i class="ph-fill ph-calculator"></i>
+        </div>
+        <h3>Calculadoras Técnicas de Canteiro</h3>
+        <p>Dimensionamento expedito de traço de concreto por resistência (fck), consumo de aço (kg/m³), alvenaria estrutural e taxa de bota-fora de terraplenagem.</p>
+        <div class="stitch-features">
+          <span><i class="ph-bold ph-check"></i> Traço por fck</span>
+          <span><i class="ph-bold ph-check"></i> Taxa de Armadura</span>
+          <span><i class="ph-bold ph-check"></i> Volume & Empolamento</span>
+        </div>
+        <div class="stitch-actions">
+          <button class="btn-stitch-preview cyan" onclick="openStitchViewer('stitch_screens/calculadoras_tecnicas.html', 'Calculadoras Técnicas de Engenharia')">
+            <i class="ph-bold ph-eye"></i> Visualizar Tela
+          </button>
+          <a href="stitch_screens/calculadoras_tecnicas.html" target="_blank" class="btn-stitch-external" title="Abrir em Nova Aba">
+            <i class="ph-bold ph-arrow-square-out"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Módulo 3: Mentoria & Guias de Campo -->
+      <div class="stitch-card">
+        <div class="stitch-card-top">
+          <span class="stitch-pill"><i class="ph-bold ph-compass"></i> Carreira</span>
+          <span class="stitch-date">Passo a Passo</span>
+        </div>
+        <div class="stitch-icon-box">
+          <i class="ph-fill ph-graduation-cap"></i>
+        </div>
+        <h3>Mentoria & Guias Práticos de Campo</h3>
+        <p>Checklists passo a passo para conferência de armaduras em lajes e vigas, concretagem, prumo de alvenaria e entrega formal de chaves com laudo de vistoria.</p>
+        <div class="stitch-features">
+          <span><i class="ph-bold ph-check"></i> Checklists de Obra</span>
+          <span><i class="ph-bold ph-check"></i> Passo a Passo NBR</span>
+          <span><i class="ph-bold ph-check"></i> Dicas de Gestão</span>
+        </div>
+        <div class="stitch-actions">
+          <button class="btn-stitch-preview" onclick="openStitchViewer('stitch_screens/mentoria_guias.html', 'Mentoria & Guias Práticos de Campo')">
+            <i class="ph-bold ph-eye"></i> Visualizar Tela
+          </button>
+          <a href="stitch_screens/mentoria_guias.html" target="_blank" class="btn-stitch-external" title="Abrir em Nova Aba">
+            <i class="ph-bold ph-arrow-square-out"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Módulo 4: Chat & Medição Prancha E-04 -->
+      <div class="stitch-card">
+        <div class="stitch-card-top">
+          <span class="stitch-pill"><i class="ph-bold ph-ruler"></i> Interativo</span>
+          <span class="stitch-date">Prancha Técnica</span>
+        </div>
+        <div class="stitch-icon-box">
+          <i class="ph-fill ph-blueprint"></i>
+        </div>
+        <h3>Chat ao Vivo & Medição na Prancha E-04</h3>
+        <p>Ambiente integrado para conferência colaborativa de cotas estruturais na prancha técnica com canal direto de áudio e texto com calculistas mentores.</p>
+        <div class="stitch-features">
+          <span><i class="ph-bold ph-check"></i> Leitor CAD/PDF</span>
+          <span><i class="ph-bold ph-check"></i> Escala Calibrada</span>
+          <span><i class="ph-bold ph-check"></i> Colaboração Real</span>
+        </div>
+        <div class="stitch-actions">
+          <button class="btn-stitch-preview" onclick="openStitchViewer('stitch_screens/chat_medicao_prancha.html', 'Inspeção e Medição na Prancha E-04')">
+            <i class="ph-bold ph-eye"></i> Visualizar Tela
+          </button>
+          <a href="stitch_screens/chat_medicao_prancha.html" target="_blank" class="btn-stitch-external" title="Abrir em Nova Aba">
+            <i class="ph-bold ph-arrow-square-out"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MODAL VIEWER EM TELA CHEIA PARA AS TELAS DO STITCH -->
+  <div id="stitchViewerModal" class="stitch-viewer-backdrop">
+    <div class="stitch-viewer-container">
+      <div class="stitch-viewer-header">
+        <div class="viewer-title-group">
+          <i class="ph-bold ph-device-mobile"></i>
+          <div>
+            <h4 id="stitchViewerTitle">Tela do Google Stitch</h4>
+            <span id="stitchViewerUrl" class="viewer-sub">Carregando módulo...</span>
+          </div>
+        </div>
+        <div class="viewer-controls">
+          <button id="btnDeviceToggle" class="btn-viewer-control" title="Alternar formato Desktop / Mobile">
+            <i class="ph-bold ph-devices"></i>
+          </button>
+          <a id="btnViewerOpenTab" href="#" target="_blank" class="btn-viewer-control" title="Abrir em página cheia">
+            <i class="ph-bold ph-arrow-square-out"></i>
+          </a>
+          <button id="btnCloseStitchViewer" class="btn-viewer-control close" title="Fechar visualização">
+            <i class="ph-bold ph-x"></i>
+          </button>
+        </div>
+      </div>
+      <div class="stitch-iframe-wrapper mobile-frame" id="stitchIframeWrapper">
+        <iframe id="stitchIframe" src="" frameborder="0"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEÇÃO 4: Cursos Gratuitos de Capacitação Técnica -->
+  <section id="cursos" class="section-container bg-surface-contrast">
+    <div class="section-header">
+      <div class="section-tag">CAPACITAÇÃO CONTÍNUA</div>
+      <h2 class="section-title">Trilha Gratuita de Formação para o Recém-Formado</h2>
+      <p class="section-subtitle">Links diretos e certificados reais oferecidos por instituições oficiais do setor.</p>
+    </div>
+
+    <div class="courses-grid">
+      
+      <div class="course-card">
+        <div class="course-source">SENAI / CNI</div>
+        <h3>BIM: A Nova Era da Construção Civil</h3>
+        <p>Aprenda os fundamentos de modelagem da informação da construção, dimensões 4D/5D e implantação no canteiro.</p>
+        <div class="course-meta">
+          <span><i class="ph ph-clock"></i> 20 Horas</span>
+          <span><i class="ph ph-certificate"></i> Certificado Incluso</span>
+        </div>
+        <a href="https://www.mundosenai.com.br" target="_blank" rel="noopener noreferrer" class="course-btn">
+          Acessar Curso Grátis <i class="ph ph-arrow-up-right"></i>
+        </a>
+      </div>
+
+      <div class="course-card">
+        <div class="course-source">ENAP / Governo Federal</div>
+        <h3>Gestão e Fiscalização de Obras Públicas</h3>
+        <p>Normas de licitação (Lei 14.133/21), medições de contratos públicos, planilhas orçamentárias e acórdãos do TCU.</p>
+        <div class="course-meta">
+          <span><i class="ph ph-clock"></i> 40 Horas</span>
+          <span><i class="ph ph-certificate"></i> Certificado Oficial</span>
+        </div>
+        <a href="https://www.escolavirtual.gov.br" target="_blank" rel="noopener noreferrer" class="course-btn">
+          Acessar Curso Grátis <i class="ph ph-arrow-up-right"></i>
+        </a>
+      </div>
+
+      <div class="course-card">
+        <div class="course-source">CREA / CONFEA</div>
+        <h3>Elaboração e Responsabilidade Técnica de ART</h3>
+        <p>Passo a passo no preenchimento de ART de Obra, Serviço, Múltipla e Cargo/Função Técnica sem sofrer autuações fiscais.</p>
+        <div class="course-meta">
+          <span><i class="ph ph-clock"></i> 10 Horas</span>
+          <span><i class="ph ph-certificate"></i> Guia Oficial</span>
+        </div>
+        <a href="https://www.confea.org.br" target="_blank" rel="noopener noreferrer" class="course-btn">
+          Acessar Conteúdo <i class="ph ph-arrow-up-right"></i>
+        </a>
+      </div>
+
+      <div class="course-card">
+        <div class="course-source">SEBRAE</div>
+        <h3>Gestão Financeira & Abertura de Empresa de Engenharia</h3>
+        <p>Fluxo de caixa, regime Simples Nacional vs Lucro Presumido, cobrança de honorários e captação de clientes.</p>
+        <div class="course-meta">
+          <span><i class="ph ph-clock"></i> 15 Horas</span>
+          <span><i class="ph ph-certificate"></i> Gratuito Online</span>
+        </div>
+        <a href="https://www.sebrae.com.br" target="_blank" rel="noopener noreferrer" class="course-btn">
+          Acessar Curso Grátis <i class="ph ph-arrow-up-right"></i>
+        </a>
+      </div>
+
+      <div class="course-card">
+        <div class="course-source">CBIC (Câmara Brasileira)</div>
+        <h3>Produtividade e Lean Construction no Canteiro</h3>
+        <p>Filosofia da construção enxuta (Last Planner System), redução de desperdícios de materiais e ritmo contínuo em obra.</p>
+        <div class="course-meta">
+          <span><i class="ph ph-clock"></i> E-books & Vídeos</span>
+          <span><i class="ph ph-certificate"></i> Material Técnico</span>
+        </div>
+        <a href="https://cbic.org.br" target="_blank" rel="noopener noreferrer" class="course-btn">
+          Acessar Acervo Grátis <i class="ph ph-arrow-up-right"></i>
+        </a>
+      </div>
+
+      <div class="course-card">
+        <div class="course-source">ABNT Coleção / Pró-Engenharia</div>
+        <h3>Interpretação das Normas NBR 6118 e NBR 15575</h3>
+        <p>Visão geral dos critérios de Desempenho Habitacional (acústico, térmico e durabilidade) e estruturas de concreto.</p>
+        <div class="course-meta">
+          <span><i class="ph ph-clock"></i> 12 Horas</span>
+          <span><i class="ph ph-certificate"></i> EAD</span>
+        </div>
+        <a href="https://www.abnt.org.br" target="_blank" rel="noopener noreferrer" class="course-btn">
+          Consultar Catálogo <i class="ph ph-arrow-up-right"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MODAL EXCLUSIVO DE AUTENTICAÇÃO COM SÍMBOLOS DINÂMICOS DA ENGENHARIA -->
+  <div id="authModal" class="modal-backdrop">
+    <div class="modal-card">
+      <button id="btnCloseModal" class="modal-close-btn" aria-label="Fechar janela">
+        <i class="ph-bold ph-x"></i>
+      </button>
+
+      <!-- Canvas Interativo Dedicado Interno do Modal -->
+      <div class="modal-interactive-header">
+        <canvas id="modalEngCanvas" class="modal-canvas"></canvas>
+        <div class="header-overlay-text">
+          <div class="auth-icon-badge">
+            <i class="ph-bold ph-shield-check"></i>
+          </div>
+          <h3>Validação Profissional CREA</h3>
+          <p>Ambiente seguro para Engenheiros Civis Habilitados</p>
+        </div>
+      </div>
+
+      <form id="creaLoginForm" class="modal-form">
+        <div class="form-group">
+          <label for="userName">
+            <i class="ph-bold ph-user"></i> Nome e Sobrenome do Engenheiro
+          </label>
+          <input type="text" id="userName" placeholder="Ex: Carlos Eduardo Silveira" required>
+        </div>
+
+        <div class="form-group">
+          <label for="creaNumber">
+            <i class="ph-bold ph-identification-card"></i> Número de Registro CREA com UF
+          </label>
+          <div class="input-with-symbol">
+            <input type="text" id="creaNumber" placeholder="Ex: 506.123456-SP ou 123456/D-MG" required>
+            <span class="input-icon-hint"><i class="ph-bold ph-gear"></i></span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="userEmail">
+            <i class="ph-bold ph-envelope"></i> E-mail Profissional
+          </label>
+          <input type="email" id="userEmail" placeholder="engenheiro@dominio.com.br" required>
+        </div>
+
+        <div class="form-group">
+          <label for="userPassword">
+            <i class="ph-bold ph-lock-key"></i> Senha de Acesso Técnico
+          </label>
+          <div class="password-toggle-wrapper">
+            <input type="password" id="userPassword" placeholder="••••••••••••" required>
+            <button type="button" id="btnTogglePass" class="btn-toggle-eye">
+              <i class="ph ph-eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="form-aux-row">
+          <label class="remember-label">
+            <input type="checkbox" id="rememberCrea"> Lembrar neste terminal
+          </label>
+          <a href="#" class="forgot-link">Esqueceu o registro?</a>
+        </div>
+
+        <button type="submit" class="btn-submit-auth">
+          <span>Autenticar Registro e Liberar Acervo</span>
+          <i class="ph-bold ph-arrow-right"></i>
+        </button>
+
+        <div id="loginFeedback" class="login-feedback-msg"></div>
+
+        <div class="security-seal">
+          <i class="ph-fill ph-lock-simple"></i>
+          <span>Dados criptografados conforme Resoluções do Confea/Crea & LGPD</span>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Rodapé Técnico -->
+  <footer class="footer-eng">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="logo-symbol small">
+          <i class="ph-bold ph-compass"></i>
+        </div>
+        <div>
+          <h4>ENG.START | Hub do Engenheiro Civil</h4>
+          <p>Desenvolvido para orientar e alavancar a nova geração de engenheiros do Brasil.</p>
+        </div>
+      </div>
+      <div class="footer-copy">
+        <p>&copy; 2026 ENG.START - Conteúdo de caráter educativo e consultivo com base na legislação brasileira.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PAINEL DE CHAT INTERATIVO ENTRE ENGENHEIROS (NETWORKING & APRIMORAMENTO) -->
+  <div id="engChatDrawer" class="eng-chat-drawer">
+    <div class="chat-drawer-header">
+      <div class="chat-title-group">
+        <div class="chat-live-pulse"></div>
+        <div>
+          <h4>Canteiro Digital | Chat dos Engenheiros</h4>
+          <span class="chat-header-sub">Troca de experiências técnicas em tempo real</span>
+        </div>
+      </div>
+      <div class="chat-header-actions">
+        <button id="btnMinimizeChat" class="btn-chat-action" title="Minimizar">
+          <i class="ph-bold ph-minus"></i>
+        </button>
+        <button id="btnCloseChat" class="btn-chat-action" title="Fechar">
+          <i class="ph-bold ph-x"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Seletor de Salas / Temas Técnicos -->
+    <div class="chat-channels-bar">
+      <button class="channel-chip active" data-channel="geral">
+        <i class="ph ph-chats"></i> Geral
+      </button>
+      <button class="channel-chip" data-channel="patologias">
+        <i class="ph ph-warning"></i> Patologias & Obras
+      </button>
+      <button class="channel-chip" data-channel="pj">
+        <i class="ph ph-briefcase"></i> Abertura PJ & Contratos
+      </button>
+      <button class="channel-chip" data-channel="softwares">
+        <i class="ph ph-cpu"></i> BIM & Softwares
+      </button>
+    </div>
+
+    <!-- Lista de Mensagens do Chat -->
+    <div id="chatMessagesContainer" class="chat-messages-body">
+      <!-- Mensagens alimentadas dinamicamente via JS -->
+    </div>
+
+    <!-- Barra de Digitação de Mensagem -->
+    <form id="chatMessageForm" class="chat-input-bar">
+      <div class="chat-input-wrapper">
+        <input type="text" id="chatInputText" placeholder="Compartilhe uma dúvida, caso de obra ou dica técnica..." autocomplete="off" required>
+        <button type="submit" class="btn-send-message" title="Enviar Mensagem">
+          <i class="ph-bold ph-paper-plane-right"></i>
+        </button>
+      </div>
+      <div class="chat-input-hint">
+        <i class="ph ph-shield-check"></i> Mensagens identificadas pelo seu registro CREA
+      </div>
+    </form>
+  </div>
+
+  <!-- Scripts Interativos -->
+  <script src="script.js"></script>
+</body>
+</html>
